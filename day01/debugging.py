@@ -1,4 +1,4 @@
-#Fix the code below 👇
+# Fix the code below 👇
 # The code below is fixed
 print("Day 1 - String Manipulation")
 print('String Concatenation is done with the "+" sign.')

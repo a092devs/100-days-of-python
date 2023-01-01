@@ -4,7 +4,7 @@ b = input("b: ")
 # 🚨 Don't change the code above 👆
 
 ####################################
-#Write your code below this line 👇
+# Write your code below this line 👇
 temp = a
 a = b
 b = temp
