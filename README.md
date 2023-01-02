@@ -8,6 +8,7 @@
 - [Day 4](https://github.com/a092devs/100-days-of-python/tree/master/day04) - Randomization and Python Lists
 - [Day 5](https://github.com/a092devs/100-days-of-python/tree/master/day05) - Python Loops
 - [Day 6](https://github.com/a092devs/100-days-of-python/tree/master/day06) - Python Functions and karel
+- [Day 7](https://github.com/a092devs/100-days-of-python/tree/master/day07) - Hangman
 
 
 ## ⚙ Tools and Technologies Covered
