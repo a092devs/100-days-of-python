@@ -6,6 +6,7 @@
 - [Day 2](https://github.com/a092devs/100-days-of-python/tree/master/day02) - Understanding Data Types and How to Manipulate Strings
 - [Day 3](https://github.com/a092devs/100-days-of-python/tree/master/day03) - Control FLow and Logical Operators
 - [Day 4](https://github.com/a092devs/100-days-of-python/tree/master/day04) - Randomization and Python Lists
+- [Day 5](https://github.com/a092devs/100-days-of-python/tree/master/day05) - Python Loops
 
 
 ## ⚙ Tools and Technologies Covered
