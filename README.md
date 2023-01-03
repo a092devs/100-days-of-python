@@ -9,6 +9,7 @@
 - [Day 5](https://github.com/a092devs/100-days-of-python/tree/master/day05) - Python Loops
 - [Day 6](https://github.com/a092devs/100-days-of-python/tree/master/day06) - Python Functions and karel
 - [Day 7](https://github.com/a092devs/100-days-of-python/tree/master/day07) - Hangman
+- [Day 8](https://github.com/a092devs/100-days-of-python/tree/master/day08) - Function Parameters & Caesar Cihper
 
 
 ## ⚙ Tools and Technologies Covered
