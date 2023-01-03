@@ -15,7 +15,7 @@ def caesar(message, shift):
 print(logo)
 
 while True:
-    text = input("Type your message:\n")  # remove lower to check
+    text = input("Type your message:\n")
     shift = int(input("Type the shift number:\n(Enter a negative number to decode)\n"))
     print(f"Plain text: {text}")
     print(f"Shift number: {shift}")
