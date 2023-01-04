@@ -11,6 +11,7 @@
 - [Day 7](https://github.com/a092devs/100-days-of-python/tree/master/day07) - Hangman
 - [Day 8](https://github.com/a092devs/100-days-of-python/tree/master/day08) - Function Parameters & Caesar Cihper
 - [Day 9](https://github.com/a092devs/100-days-of-python/tree/master/day09) - Dictionaries, Nesting and the Secret Auction
+- [Day 10](https://github.com/a092devs/100-days-of-python/tree/master/day10) - Functions with Outputs
 
 
 ## ⚙ Tools and Technologies Covered
