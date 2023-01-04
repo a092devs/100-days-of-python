@@ -12,11 +12,11 @@ bill = float(input("What was the total bill? $"))
 tip = float(input("What percentage of tip would you like to give? 10, 12 or 15? "))
 people = int(input("How many people to split the bill? "))
 
-tip_percent = tip /100
+tip_percent = tip / 100
 total_tip_amount = bill * tip_percent
 total_bill = bill + total_tip_amount
 
 bill_per_person = total_bill / people
-final_amount = f"{bill_per_person:.2f}" #f"{variable:.xf}" to round
+final_amount = f"{bill_per_person:.2f}" # f"{variable:.xf}" replace x with integer to get integer value
 
 print(f"Each person should pay: ${final_amount}")

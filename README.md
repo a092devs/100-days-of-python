@@ -12,9 +12,12 @@
 - [Day 8](https://github.com/a092devs/100-days-of-python/tree/master/day08) - Function Parameters & Caesar Cihper
 - [Day 9](https://github.com/a092devs/100-days-of-python/tree/master/day09) - Dictionaries, Nesting and the Secret Auction
 - [Day 10](https://github.com/a092devs/100-days-of-python/tree/master/day10) - Functions with Outputs
+- [Day 11](https://github.com/a092devs/100-days-of-python/tree/master/day11) - The Blackjack Capstone Project
 
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
 - VSCode
+- Python Scripting and Automation
+- Python Game Development
 - Git, GitHub and Version Control
