@@ -13,6 +13,7 @@
 - [Day 9](https://github.com/a092devs/100-days-of-python/tree/master/day09) - Dictionaries, Nesting and the Secret Auction
 - [Day 10](https://github.com/a092devs/100-days-of-python/tree/master/day10) - Functions with Outputs
 - [Day 11](https://github.com/a092devs/100-days-of-python/tree/master/day11) - The Blackjack Capstone Project
+- [Day 12](https://github.com/a092devs/100-days-of-python/tree/master/day12) - Scope & Number Guessing Game
 
 
 ## ⚙ Tools and Technologies Covered
