@@ -14,6 +14,7 @@
 - [Day 10](https://github.com/a092devs/100-days-of-python/tree/master/day10) - Functions with Outputs
 - [Day 11](https://github.com/a092devs/100-days-of-python/tree/master/day11) - The Blackjack Capstone Project
 - [Day 12](https://github.com/a092devs/100-days-of-python/tree/master/day12) - Scope & Number Guessing Game
+- [Day 13](https://github.com/a092devs/100-days-of-python/tree/master/day13) - Debugging: How to Find and Fix Errors in your Code
 
 
 ## ⚙ Tools and Technologies Covered
