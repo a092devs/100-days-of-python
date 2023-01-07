@@ -17,6 +17,9 @@
 - [Day 13](https://github.com/a092devs/100-days-of-python/tree/master/day13) - Debugging: How to Find and Fix Errors in your Code
 - [Day 14](https://github.com/a092devs/100-days-of-python/tree/master/day14) - Higher Lower Game Project
 
+## 📚 Intermediate
+- [Day 15](https://github.com/a092devs/100-days-of-python/tree/master/day15) - Local Development Environment Setup & the Coffee Machine
+
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
