@@ -19,6 +19,7 @@
 
 ## 📚 Intermediate
 - [Day 15](https://github.com/a092devs/100-days-of-python/tree/master/day15) - Local Development Environment Setup & the Coffee Machine
+- [Day 16](https://github.com/a092devs/100-days-of-python/tree/master/day16) - Object Oriented Programming (OOP)
 
 
 ## ⚙ Tools and Technologies Covered
