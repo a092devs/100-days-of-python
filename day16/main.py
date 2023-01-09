@@ -9,11 +9,11 @@ cappuccino = MenuItem("cappuccino", 250, 100, 24, 3.0)
 menu = Menu()
 
 coffee_maker = CoffeeMaker()
-
 money_machine = MoneyMachine()
 
 while True:
-    choice = input("What would you like? Choose between espresso, latte or cappuccino: ").lower()
+    options = menu.get_items()
+    choice = input(f"What would you like? ({options}): ").lower()
     if choice == 'off':
         print("Have a good day!")
         break
@@ -21,6 +21,6 @@ while True:
         coffee_maker.report()
         money_machine.report()
     else:
-        coffee_choice = menu.find_drink(choice)
-        if coffee_maker.is_resource_sufficient(espresso) and money_machine.make_payment(espresso.cost):
-            coffee_maker.make_coffee(coffee_choice)
+        drink = menu.find_drink(choice)
+        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+            coffee_maker.make_coffee(drink)
