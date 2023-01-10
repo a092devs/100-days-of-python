@@ -21,6 +21,7 @@
 - [Day 15](https://github.com/a092devs/100-days-of-python/tree/master/day15) - Local Development Environment Setup & the Coffee Machine
 - [Day 16](https://github.com/a092devs/100-days-of-python/tree/master/day16) - Object Oriented Programming (OOP)
 - [Day 17](https://github.com/a092devs/100-days-of-python/tree/master/day17) - The Quiz Project & The Benefits of OOP
+- [Day 18](https://github.com/a092devs/100-days-of-python/tree/master/day18) - Turtle & the Graphical User Interface (GUI)
 
 
 ## ⚙ Tools and Technologies Covered
