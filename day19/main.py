@@ -1,47 +1,39 @@
-import turtle
+from turtle import Turtle, Screen
 import random
 
-FRAME_WIDTH = 600
-FRAME_HEIGHT = 400
-COLOR_LIST = ["red", "orange", "yellow", "green", "blue", "purple"]
-SPEED = 10
+screen = Screen()
+screen.setup(width=800, height=600)
+screen.bgpic('road.gif')
 
-screen = turtle.Screen()
-screen.setup(width=FRAME_WIDTH, height=FRAME_HEIGHT)
-screen.title("Turtle Race")
+ALIGN = "right"
+FONT = ("Courier", 28, "bold")
 
-offset = int(FRAME_HEIGHT / (len(COLOR_LIST) + 1))
-start_x = FRAME_WIDTH / -2 + 12
-start_y = int(FRAME_HEIGHT / -2 + offset)
+y_positions = [-260, -172, -85, 2, 85, 172, 260]
+colors = ["white", "red", "orange", "pink", "tomato", "dodgerblue", "yellow"]
+all_turtle = []
+user_bet = screen.textinput('Enter your bet', prompt='Which turtle (color): ')
 
-racers = len(COLOR_LIST)
-racer_list = []
-for i in range(racers):
-    racer_list.append(turtle.Turtle(shape="turtle"))
-    racer_list[i].hideturtle()
-    racer_list[i].color(COLOR_LIST[i])
-    racer_list[i].penup()
-    racer_list[i].setx(start_x)
-    racer_list[i].sety(start_y + offset * i)
-    racer_list[i].showturtle()
+for index in range(7):
+    new_turtle = Turtle(shape="turtle")
+    new_turtle.shapesize(2)
+    new_turtle.speed('fastest')
+    new_turtle.penup()
+    new_turtle.goto(x=-350, y=y_positions[index])
+    new_turtle.color(colors[index])
+    all_turtle.append(new_turtle)
 
-guess = screen.textinput(title="Make Your Bet", prompt="Which turtle will win the race? Enter a color:")
+is_on = True
 
-end_x = FRAME_WIDTH / 2 - 25
-race_is_over = False
-winner = ""
-
-while not race_is_over:
-    for i in range(racers):
-        racer_list[i].setx(racer_list[i].xcor() + random.randint(1, SPEED))
-        if racer_list[i].xcor() >= end_x:
-            race_is_over = True
-            winner = COLOR_LIST[i]
-
-print(f"The winner was {winner}.")
-if guess.lower() == winner.lower():
-    print("You won the bet!")
-else:
-    print("Sorry, you lost.")
+while is_on:
+    for turtle in all_turtle:
+        if turtle.xcor() > 330:
+            is_on = False
+            winner = turtle.pencolor()
+            if winner == user_bet:
+                turtle.write(f'Winner! The {winner} is winner', font=FONT, align=ALIGN)
+            else:
+                turtle.write(f'Lost! The {winner} is winner', font=FONT, align=ALIGN)
+        random_pace = random.randint(0, 7)
+        turtle.forward(random_pace)
 
 screen.exitonclick()
