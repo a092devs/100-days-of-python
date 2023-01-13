@@ -24,6 +24,7 @@
 - [Day 18](https://github.com/a092devs/100-days-of-python/tree/master/day18) - Turtle & the Graphical User Interface (GUI)
 - [Day 19](https://github.com/a092devs/100-days-of-python/tree/master/day19) - Instances, State and Higher Order Function
 - [Day 20](https://github.com/a092devs/100-days-of-python/tree/master/day20) - Build the Snake Game Part 1: Animation & Coordinates
+- [Day 21](https://github.com/a092devs/100-days-of-python/tree/master/day21) - Build the Snake Game Part 2: Inheritance & List Slicing
 
 
 ## ⚙ Tools and Technologies Covered
@@ -32,3 +33,4 @@
 - Python Scripting and Automation
 - Python Game Development
 - Git, GitHub and Version Control
+- Turtle
