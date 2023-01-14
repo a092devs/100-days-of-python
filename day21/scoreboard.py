@@ -1,26 +1,36 @@
-import turtle
+from turtle import Turtle
 
-FONT = ("Arial", 20, "normal")
+ALIGNMENT = "center"
+FONT = ("Courier", 20, "normal")
 
-class Scoreboard(turtle.Turtle):
-    def __init__(self):
+class Scoreboard(Turtle):
+    def __init__(self, high_score):
         super().__init__()
-        self.color("silver")
+        self.current_score = 0
+        self.high_score = high_score
+        self.color("white")
         self.hideturtle()
-        self.speed(0)
         self.penup()
-        self.setpos(0, int(self.getscreen().window_height() / 2 - 30))
-        self.score = 0
-        self.update()
+        self.goto(x=0, y=300)
+        self.string = f"Score: {self.current_score}            High Score: {str(self.high_score)}"
+        self.write(self.string, font=FONT, align=ALIGNMENT)
 
-    def update(self):
+    def increace_high_score(self):
         self.clear()
-        self.write(f"Score: {self.score}", align="center", font=FONT)
-
-    def add_one(self):
-        self.score += 1
-        self.update()
+        self.high_score = self.current_score
+        self.string = f"Score: {str(self.current_score)}            High Score: {str(self.high_score)}"
+        self.write(self.string, font=FONT, align=ALIGNMENT)
+        return self.high_score
 
     def game_over(self):
-        self.setpos(0, 0)
-        self.write("GAME OVER", align="center", font=FONT)
+        self.increace_high_score()
+        self.color("red")
+        self.goto(x=0, y=0)
+        self.write("           GAME OVER\nPlay another game? 'Y' or 'N'", font=FONT, align=ALIGNMENT)
+        return self.high_score
+        
+    def increace_score(self):
+        self.clear()
+        self.current_score += 1    
+        self.string = f"Score: {self.current_score}            High Score: {str(self.high_score)}"
+        self.write(self.string, font=FONT, align=ALIGNMENT)

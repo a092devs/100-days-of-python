@@ -25,6 +25,7 @@
 - [Day 19](https://github.com/a092devs/100-days-of-python/tree/master/day19) - Instances, State and Higher Order Function
 - [Day 20](https://github.com/a092devs/100-days-of-python/tree/master/day20) - Build the Snake Game Part 1: Animation & Coordinates
 - [Day 21](https://github.com/a092devs/100-days-of-python/tree/master/day21) - Build the Snake Game Part 2: Inheritance & List Slicing
+- [Day 22](https://github.com/a092devs/100-days-of-python/tree/master/day22) - Build Pong: The Famous Arcade Game
 
 
 ## ⚙ Tools and Technologies Covered

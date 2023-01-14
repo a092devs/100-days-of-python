@@ -1,53 +1,83 @@
-import turtle
-import time
-
+from turtle import Screen, Turtle
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
+import time
 
-GAME_SPEED = 8
-WIDTH = 800
-HEIGHT = 600
+high_score = 0
+screen = Screen()
 
-wait_time = (11 - GAME_SPEED) / 30
-x_range = WIDTH // 2 - 10
-y_range = HEIGHT // 2 - 10
+def play_again():
+    screen.listen()
+    screen.onkey(snake_game, "y")
+    screen.onkey(snake_game, "Y")
+    screen.onkey(screen.bye, "n")
+    screen.onkey(screen.bye, "N")
 
-screen = turtle.Screen()
-screen.setup(width=WIDTH, height=HEIGHT)
-screen.title("Finished Snake Game")
-screen.bgcolor("black")
-screen.tracer(0)
+def snake_game():
+    global high_score
+    screen.reset()
+    screen.setup(width=650, height=655)
+    screen.bgcolor("black")
+    screen.title("Classic Snake Game")
+    screen.tracer(0)
 
-snake = Snake()
-food = Food()
-scoreboard = Scoreboard()
+    snake = Snake()
+    food = Food()
+    score = Scoreboard(high_score)
+    
+    level = screen.numinput("How fast are you?", "Enter the level 1 (Easy) - 3 (Hard): ", 3, 1, 3)
 
-screen.listen()
-screen.onkey(snake.up, "Up")
-screen.onkey(snake.down, "Down")
-screen.onkey(snake.left, "Left")
-screen.onkey(snake.right, "Right")
+    screen.listen()
+    screen.onkey(snake.up, "Up")
+    screen.onkey(snake.down, "Down")
+    screen.onkey(snake.left, "Left")
+    screen.onkey(snake.right, "Right")
 
-game_is_over = False
-while not game_is_over:
-    screen.update()
-    time.sleep(wait_time)
-    snake.move()
+    line = Turtle()
+    line.speed('fastest')
+    line.color("white")
+    line.hideturtle()
+    line.penup()
+    line.goto(x=300, y=300)
+    line.pendown()
+    line.goto(x=300, y=-300)
+    line.goto(x=-300, y=-300)
+    line.goto(x=-300, y=300)
+    line.goto(x=300, y=300)
 
-    if snake.head.distance(food) < 10:
-        scoreboard.add_one()
-        snake.extend()
-        food.respawn()
+    game_is_on = True
+    while game_is_on:
+        screen.update()
+        if level == 1:
+            time.sleep(0.3)
+        elif level == 2:
+            time.sleep(0.2)
+        else:
+            time.sleep(0.1)
+        snake.move()
 
-    if snake.head.xcor() < -x_range or snake.head.xcor() > x_range \
-            or snake.head.ycor() < -y_range or snake.head.ycor() > y_range:
-        game_is_over = True
+        if snake.head.distance(food) < 15:
+            food.refresh()
+            snake.extend()
+            score.increace_score()
 
-    for i in range(1, snake.length):
-        if snake.head.distance(snake.segments[i]) < 10:
-            game_is_over = True
+        if (snake.head.xcor()) > 295 or (snake.head.ycor()) > 295 or \
+            (snake.head.xcor()) < -295 or (snake.head.ycor()) < -295:
+            game_is_on = False
+            high_score_temp = score.game_over()
+            if high_score_temp > high_score:
+                    high_score = high_score_temp
+            play_again()
 
-scoreboard.game_over()
+        for segment in snake.turtles[1:]:
+            if snake.head.distance(segment) < 10:
+                game_is_on = False
+                high_score_temp = score.game_over()
+                if high_score_temp > high_score:
+                    high_score = high_score_temp
+                play_again()
 
-screen.exitonclick()
+    screen.exitonclick()
+
+snake_game()

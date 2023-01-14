@@ -1,52 +1,54 @@
-import turtle
+from turtle import Turtle
 
-START_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
 UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
 
-class Snake:
+class Snake():
     def __init__(self):
-        self.segments = []
+        self.turtles = []
         self.create_snake()
-        self.head = self.segments[0]
-        self.length = len(self.segments)
+        self.head = self.turtles[0]
 
     def create_snake(self):
-        for i in range(len(START_POSITIONS)):
-            self.add_segment(i)
-            self.segments[i].setpos(START_POSITIONS[i])
+        x = 0
+        y = 0
+        for _ in range(3):
+            position = (x, y)
+            self.add_segment(position)
+            x -= 20
 
-    def add_segment(self, i):
-        self.segments.append(turtle.Turtle(shape="square"))
-        self.segments[i].color("white")
-        self.segments[i].penup()
+    def add_segment(self, position):
+        new_turtle = Turtle(shape="square")
+        new_turtle.color("white")
+        new_turtle.penup()
+        new_turtle.goto(position)
+        self.turtles.append(new_turtle)
 
     def extend(self):
-        self.add_segment(self.length)
-        self.segments[self.length].setpos(self.segments[self.length - 1].pos())
-        self.length += 1
+        self.add_segment(self.turtles[-1].position())
 
-    def move(self):
-        for i in range(self.length - 1, 0, -1):
-            self.segments[i].setx(self.segments[i - 1].xcor())
-            self.segments[i].sety(self.segments[i - 1].ycor())
-        self.head.forward(MOVE_DISTANCE)
+    def move(self):  
+        for seg_num in range(len(self.turtles) -1, 0, -1):
+            new_x = self.turtles[seg_num - 1].xcor()
+            new_y = self.turtles[seg_num - 1].ycor()
+            self.turtles[seg_num].goto(x=new_x, y=new_y)
+        self.head.forward(MOVE_DISTANCE)  
 
     def up(self):
-        if self.head.heading() != DOWN:
+        if self.head.heading() != DOWN and abs(self.turtles[0].xcor() - self.turtles[1].xcor()) > 2:
             self.head.setheading(UP)
 
     def down(self):
-        if self.head.heading() != UP:
+        if self.head.heading() != UP and abs(self.turtles[0].xcor() - self.turtles[1].xcor()) > 2:
             self.head.setheading(DOWN)
 
     def left(self):
-        if self.head.heading() != RIGHT:
+        if self.head.heading() != RIGHT and abs(self.turtles[0].ycor() - self.turtles[1].ycor()) > 2:
             self.head.setheading(LEFT)
 
     def right(self):
-        if self.head.heading() != LEFT:
+        if self.head.heading() != LEFT and abs(self.turtles[0].ycor() - self.turtles[1].ycor()) > 2:
             self.head.setheading(RIGHT)
