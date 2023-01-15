@@ -1,7 +1,7 @@
 # 🚨 Don't change the code below 👇
 student_heights = input("Input a list of student heights ").split()
-for n in range(0, len(student_heights)):
-  student_heights[n] = int(student_heights[n])
+for index in range(0, len(student_heights)):
+    student_heights[index] = int(student_heights[index])
 # 🚨 Don't change the code above 👆
 
 
