@@ -29,6 +29,7 @@
 - [Day 23](https://github.com/a092devs/100-days-of-python/tree/master/day23) - The Turtle Crossing Capstone Project
 - [Day 24](https://github.com/a092devs/100-days-of-python/tree/master/day24) - Files, Directories and Paths
 - [Day 25](https://github.com/a092devs/100-days-of-python/tree/master/day25) - Working with CSV Data and the Pandas Library
+- [Day 26](https://github.com/a092devs/100-days-of-python/tree/master/day26) - List Comprehension and the Nato Alphabet
 
 
 ## ⚙ Tools and Technologies Covered
@@ -39,3 +40,7 @@
 - Git, GitHub and Version Control
 - Turtle
 - Pandas
+
+
+## 🤝 Support Me:
+<a href="https://www.digitalocean.com/?refcode=f0e84e30419e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a>
