@@ -30,6 +30,7 @@
 - [Day 24](https://github.com/a092devs/100-days-of-python/tree/master/day24) - Files, Directories and Paths
 - [Day 25](https://github.com/a092devs/100-days-of-python/tree/master/day25) - Working with CSV Data and the Pandas Library
 - [Day 26](https://github.com/a092devs/100-days-of-python/tree/master/day26) - List Comprehension and the Nato Alphabet
+- [Day 27](https://github.com/a092devs/100-days-of-python/tree/master/day27) - Tkinter, *args, **kwargs and Creating GUI Programs
 
 
 ## ⚙ Tools and Technologies Covered
@@ -40,6 +41,8 @@
 - Git, GitHub and Version Control
 - Turtle
 - Pandas
+- Python GUI Desktop App Development
+- Tkintery
 
 
 ## 🤝 Support Me:
