@@ -31,6 +31,7 @@
 - [Day 25](https://github.com/a092devs/100-days-of-python/tree/master/day25) - Working with CSV Data and the Pandas Library
 - [Day 26](https://github.com/a092devs/100-days-of-python/tree/master/day26) - List Comprehension and the Nato Alphabet
 - [Day 27](https://github.com/a092devs/100-days-of-python/tree/master/day27) - Tkinter, *args, **kwargs and Creating GUI Programs
+- [Day 28](https://github.com/a092devs/100-days-of-python/tree/master/day28) - Tkinter, Dynamic Typing and the Pomodoro GUI Application
 
 
 ## ⚙ Tools and Technologies Covered
@@ -42,7 +43,7 @@
 - Turtle
 - Pandas
 - Python GUI Desktop App Development
-- Tkintery
+- Tkinter
 
 
 ## 🤝 Support Me:
