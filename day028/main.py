@@ -1,4 +1,3 @@
-# Pomodoro Timer with nice addons (ver.2).
 from tkinter import *
 import math
 
