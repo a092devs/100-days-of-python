@@ -2,7 +2,19 @@ from tkinter import *
 from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
+import os, sys
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+Logo = resource_path("logo.png")
 
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
@@ -24,7 +36,6 @@ def generate_password():
 
     password_entry.insert(0, password)
 
-
 def save():
     website = website_entry.get()
     email = email_username_entry.get()
@@ -39,13 +50,12 @@ def save():
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
-
 window = Tk()
 window.title("Password Manager")
 window.config(padx=25, pady=25)
 
 canvas = Canvas(width=200, height=200)
-logo_png = PhotoImage(file="logo.png")
+logo_png = PhotoImage(file=Logo)
 canvas.create_image(100, 100, image=logo_png)
 canvas.grid(column=1, row=0)
 
@@ -66,9 +76,8 @@ website_entry.grid(column=1, row=1, columnspan=2)
 website_entry.focus()
 email_username_entry = Entry(width=35)
 email_username_entry.grid(column=1, row=2, columnspan=2)
-email_username_entry.insert(0, "a092devs@email.com")
+email_username_entry.insert(0, "a092devs@protonmail.com")
 password_entry = Entry(width=22)
 password_entry.grid(column=1, row=3)
-
 
 window.mainloop()
