@@ -34,6 +34,7 @@
 - [Day 28](https://github.com/a092devs/100-days-of-python/tree/master/day028) - Tkinter, Dynamic Typing and the Pomodoro GUI Application
 - [Day 29](https://github.com/a092devs/100-days-of-python/tree/master/day029) - Building a Password Manager GUI App with Tkinter
 - [Day 30](https://github.com/a092devs/100-days-of-python/tree/master/day030) - Errors, Exceptions and JSON Data: Improving the Password Manager
+- [Day 31](https://github.com/a092devs/100-days-of-python/tree/master/day031) - Capstone Project - Flash Card Program
 
 
 ## ⚙ Tools and Technologies Covered

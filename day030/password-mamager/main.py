@@ -20,8 +20,8 @@ Logo = resource_path("logo.png")
 def find_password():
     website = website_entry.get()
     try:
-        with open("data.json", "r") as data_file:
-            data = json.load(data_file)
+        with open("data.json", "r") as file:
+            data = json.load(file)
             search_email = data[website]['email']
             search_password = data[website]['password']
             messagebox.showinfo(title=website.title(), message=f"Email: {search_email}\nPassword: {search_password}")
@@ -35,7 +35,7 @@ def generate_password():
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
                'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+    symbols = ['!', '#', '$', '%', '&', '*', '(', ')', '-', '_', '+']
 
     password_letters = [choice(letters) for _ in range(randint(8, 10))]
     password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
@@ -67,15 +67,27 @@ def save():
         messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
     else:
         try:
-            with open("data.json", "r") as data_file:
-                data = json.load(data_file)
+            with open("data.json", "r") as file:
+                data = json.load(file)
+                if website in data:
+                    if update := messagebox.askyesno(
+                        "Warning",
+                        f"There is already a password saved for {website}.\n"
+                        f"Would you like to overwrite?",
+                    ):
+                        data[website]["email"] = email
+                        data[website]["password"] = password
+                    else:
+                        return
+                else:
+                    data.update(new_data)
         except FileNotFoundError:
-            with open("data.json", "w") as data_file:
-                json.dump(new_data, data_file, indent=4)
+            with open("data.json", "w") as file:
+                json.dump(new_data, file, indent=4)
         else:
             data.update(new_data)
-            with open("data.json", "w") as data_file:
-                json.dump(data, data_file, indent=4)
+            with open("data.json", "w") as file:
+                json.dump(data, file, indent=4)
         finally:
             website_entry.delete(0, END)
             password_entry.delete(0, END)
