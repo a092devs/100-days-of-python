@@ -37,7 +37,8 @@
 - [Day 31](https://github.com/a092devs/100-days-of-python/tree/master/day031) - Capstone Project - Flash Card App Capstone Project
 
 ## 👨‍💻 Intermediate+
-- [Day 32:](https://github.com/phillipai/100-days-of-code-python/tree/main/day032) Send Email (smtplib) & Manage Dates (datetime) - Automated Birthday Wisher
+- [Day 32](https://github.com/a092devs/100-days-of-python/tree/master/day032) - Send Email (smtplib) & Manage Dates (datetime) - Automated Birthday Wisher
+- [Day 33](https://github.com/a092devs/100-days-of-python/tree/master/day033) - API Endpoints & API Parameters - ISS Overhead Notifier
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
@@ -51,7 +52,3 @@
 - Tkinter
 - Pyinstaller
 - Pandas
-
-
-## 🤝 Support Me:
-<a href="https://www.digitalocean.com/?refcode=f0e84e30419e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a>
