@@ -4,8 +4,8 @@ from dateutil.parser import isoparse
 import time
 import smtplib
 
-MY_EMAIL = "arsalanakhtar0@yahoo.com"
-PASSWORD = "odhbambwuxzhiuot"
+MY_EMAIL = "my_email_was_here"
+PASSWORD = "my_pass_was_here"
 MY_LAT = 23.603900
 MY_LONG = 87.117700
 
@@ -52,5 +52,5 @@ while True:
             connection.login(MY_EMAIL, PASSWORD)
             connection.sendmail(
                 from_addr=MY_EMAIL,
-                to_addrs="arsalanakhtar0@gmail.com",
+                to_addrs="a092devs@email.com",
                 msg="Subject:Look Up👆🏼\n\nThe ISS is above you in the sky!".encode("utf-8"))
