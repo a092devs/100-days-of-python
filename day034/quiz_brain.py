@@ -1,24 +1,46 @@
 import html
+from data import quiz_data
+
+AMOUNT = 10
+CATEGORY = 0
+DIFFICULTY = "easy"
 
 class QuizBrain:
-    def __init__(self, q_list):
-        self.question_number = 0
+    def __init__(self):
+        self.question_list = None
+        self.question_number = None
+        self.score = None
+        self.category = CATEGORY
+        self.difficulty = DIFFICULTY
+        self.num_questions = AMOUNT
+        params = {
+            "category": self.category,
+            "difficulty": self.difficulty,
+            "amount": self.num_questions
+        }
+        self.setup(params)
+
+    def setup(self, params):
+        self.category = params["category"]
+        self.difficulty = params["difficulty"]
+        self.num_questions = params["amount"]
+        self.question_list = quiz_data(self.num_questions, self.category, self.difficulty)
         self.score = 0
-        self.question_list = q_list
-        self.current_question = None
+        self.question_number = 0
 
     def still_has_questions(self):
         return self.question_number < len(self.question_list)
 
     def next_question(self):
-        self.current_question = self.question_list[self.question_number]
+        question = self.question_list[self.question_number]
+        question_text = html.unescape(question.text)
         self.question_number += 1
-        q_text = html.unescape(self.current_question.text)
-        return f"Q.{self.question_number}: {q_text}"
+        return f'Q.{self.question_number}: {question_text} (True/False)?'
 
-    def check_answer(self, user_answer):
-        correct_answer = self.current_question.answer
-        if user_answer.lower() != correct_answer.lower():
+    def check_answer(self, u_answer):
+        correct_answer = self.question_list[self.question_number-1].answer
+        if correct_answer.lower() != u_answer.lower():
             return False
         self.score += 1
         return True
+

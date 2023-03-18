@@ -1,70 +1,114 @@
-from tkinter import *
+import tkinter as tk
 from quiz_brain import QuizBrain
+from setup import SetupUI
+from tkinter import messagebox
 
 THEME_COLOR = "#375362"
+
+def do_nothing():
+    pass
 
 class QuizInterface:
     def __init__(self, quiz_brain: QuizBrain):
         self.quiz = quiz_brain
-        self.window = Tk()
-        self.window.title("Quizzler")
-        self.window.config(padx=20, pady=20, bg=THEME_COLOR)
+        self.feedback = []
 
-        self.canvas = Canvas(height=250, width=300, bg="white")
-        self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
-        self.question_text = self.canvas.create_text(
-            150,
-            125,
-            width=280,
-            text="test",
-            fill=THEME_COLOR,
-            font=("Arial", 20, "italic")
-        )
+        self.window = tk.Tk()
+        self.window.title("Quizzer")
+        self.window.config(bg=THEME_COLOR, padx=20, pady=20)
 
-        self.score_text = Label(
-            text="Score: 0",
-            fg="white",
-            bg=THEME_COLOR,
-            font=("Arial", 20, "italic")
-        )
-        self.score_text.grid(column=1, row=0)
+        menubar = tk.Menu(self.window)
+        file_menu = tk.Menu(menubar, tearoff=0)
+        file_menu.add_command(label="New...", command=self.setup_ui)
+        file_menu.add_separator()
+        file_menu.add_command(label="Exit", command=self.on_closing)
+        menubar.add_cascade(label="File", menu=file_menu)
 
-        true_png = PhotoImage(file="images/true.png")
-        self.true_button = Button(image=true_png, bd=0, highlightthickness=0, command=self.answer_true, activebackground=THEME_COLOR)
-        self.true_button.grid(column=0, row=2)
+        help_menu = tk.Menu(menubar, tearoff=0)
+        help_menu.add_command(label="Help Index", command=do_nothing)
+        help_menu.add_command(label="About...", command=do_nothing)
+        menubar.add_cascade(label="Help", menu=help_menu)
+        self.window.config(menu=menubar)
 
-        false_png = PhotoImage(file="images/false.png")
-        self.false_button = Button(image=false_png, bd=0, highlightthickness=0, command=self.answer_false, activebackground=THEME_COLOR)
-        self.false_button.grid(column=1, row=2)
+        self.question_count_label = tk.Label(text=f"Question 1/{self.quiz.num_questions}",
+                                             bg=THEME_COLOR, fg="white", justify="center")
+        self.question_count_label.grid(row=0, column=0, padx=20, pady=(0, 20))
 
-        self.get_next_question()
+        self.score_label = tk.Label(text="Score: 0", bg=THEME_COLOR, fg="white", justify="center")
+        self.score_label.grid(row=0, column=1, padx=20, pady=(0, 20))
 
-        self.window.resizable(0, 0)
-        self.window.eval('tk::PlaceWindow . center')
+        self.canvas = tk.Canvas(width=300, height=250)
+        self.canvas.grid(row=1, column=0, columnspan=2)
+        self.question_text = self.canvas.create_text(150, 125, text="Quiz question is coming",
+                                                     fill=THEME_COLOR,
+                                                     font=("Arial", 18, "italic"),
+                                                     width=280)
+
+        true_img = tk.PhotoImage(file="./images/true.png")
+        self.true_button = tk.Button(image=true_img, borderwidth=0, highlightthickness=0, command=self.answer_true)
+        self.true_button.grid(row=2, column=0, padx=20, pady=(20, 0))
+
+        false_img = tk.PhotoImage(file="./images/false.png")
+        self.false_button = tk.Button(image=false_img, borderwidth=0, highlightthickness=0, command=self.answer_false)
+        self.false_button.grid(row=2, column=1, padx=20, pady=(20, 0))
+
+        self.next_question()
+
+        self.window.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.window.mainloop()
 
-    def get_next_question(self):
+    def next_question(self):
         self.canvas.config(bg="white")
+        if self.feedback:
+            self.canvas.delete(self.feedback)
         if self.quiz.still_has_questions():
-            self.score_text.config(text=f"Score: {self.quiz.score}")
-            q_text = self.quiz.next_question()
-            self.canvas.itemconfig(self.question_text, text=q_text)
+            question = self.quiz.next_question()
+            self.true_button.config(state="normal")
+            self.false_button.config(state="normal")
         else:
-            self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
+            question = "You have reached the end of the quiz!"
             self.true_button.config(state="disabled")
             self.false_button.config(state="disabled")
-
-    def answer_false(self):
-        is_right = self.quiz.check_answer("False")
-        self.give_feedback(is_right)
+        self.canvas.itemconfig(self.question_text, text=question)
+        self.score_label.config(text=f"Score : {self.quiz.score}")
+        self.question_count_label.config(text=f"Question {self.quiz.question_number}/{self.quiz.num_questions}")
 
     def answer_true(self):
-        is_right = self.quiz.check_answer("True")
-        self.give_feedback(is_right)
+        self.check_answer("True")
 
-    def give_feedback(self, is_right):
-        if is_right:
+    def answer_false(self):
+        self.check_answer("False")
+
+    def check_answer(self, arg0):
+        self.true_button.config(state="disabled")
+        self.false_button.config(state="disabled")
+        check_result = self.quiz.check_answer(arg0)
+        self.answer_feedback(check_result)
+
+    def answer_feedback(self, check_result):
+        if check_result:
             self.canvas.config(bg="green")
         else:
             self.canvas.config(bg="red")
-        self.window.after(1000, self.get_next_question)
+        self.window.after(1000, self.next_question)
+
+    def setup_ui(self):
+        params = {
+            "category": self.quiz.category,
+            "difficulty": self.quiz.difficulty,
+            "num_questions": self.quiz.num_questions
+        }
+        SetupUI(self, params)
+
+    def setup_quiz(self, category, difficulty, num_questions):
+        params = {
+            "category": category,
+            "difficulty": difficulty,
+            "amount": num_questions
+        }
+        self.quiz.setup(params)
+        self.next_question()
+
+    def on_closing(self):
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            self.window.destroy()
