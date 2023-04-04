@@ -41,6 +41,7 @@
 - [Day 33](https://github.com/a092devs/100-days-of-python/tree/master/day033) - API Endpoints & API Parameters - ISS Overhead Notifier
 - [Day 34](https://github.com/a092devs/100-days-of-python/tree/master/day034) - API Practice - Creating a GUI Quiz App
 - [Day 35](https://github.com/a092devs/100-days-of-python/tree/master/day035) - Keys, Authentication & Environment Variables: Send SMS
+- [Day 36](https://github.com/a092devs/100-days-of-python/tree/master/day036) - Stock Trading News Alert Project
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
