@@ -42,6 +42,7 @@
 - [Day 34](https://github.com/a092devs/100-days-of-python/tree/master/day034) - API Practice - Creating a GUI Quiz App
 - [Day 35](https://github.com/a092devs/100-days-of-python/tree/master/day035) - Keys, Authentication & Environment Variables: Send SMS
 - [Day 36](https://github.com/a092devs/100-days-of-python/tree/master/day036) - Stock Trading News Alert Project
+- [Day 37](https://github.com/a092devs/100-days-of-python/tree/master/day037) - Habit Tracking Project: API Post Requests & Headers
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
@@ -54,3 +55,4 @@
 - Python GUI Desktop App Development
 - Tkinter
 - Pyinstaller
+- Python Telegram Bot
