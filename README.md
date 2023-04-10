@@ -43,6 +43,7 @@
 - [Day 35](https://github.com/a092devs/100-days-of-python/tree/master/day035) - Keys, Authentication & Environment Variables: Send SMS
 - [Day 36](https://github.com/a092devs/100-days-of-python/tree/master/day036) - Stock Trading News Alert Project
 - [Day 37](https://github.com/a092devs/100-days-of-python/tree/master/day037) - Habit Tracking Project: API Post Requests & Headers
+- [Day 38](https://github.com/a092devs/100-days-of-python/tree/master/day038) - Workout Tracking Using Google Sheets
 
 ## ⚙ Tools and Technologies Covered
 - Python 3

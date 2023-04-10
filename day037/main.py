@@ -65,9 +65,9 @@ while not success:
 
 update_endpoint = f"{pixela_endpoint}/{PIXELA_UNAME}/graphs/{GRAPH_ID}/{today}"
 
-new_pixel_data = {
-    "quantity": "5"
-}
+# new_pixel_data = {
+#     "quantity": input("How many hours did you code today? ")
+# }
 
 # PUT - To Update any data
 # response = requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
