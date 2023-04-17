@@ -12,7 +12,7 @@ WEIGHT_KG = 48
 HEIGHT_CM = 167
 AGE = 26
 
-SHEETY_ENDPOINT = environ.get(("SHEETY_ENDPOINT"))
+SHEETY_WORKOUT_ENDPOINT = environ.get(("SHEETY_WORKOUT_ENDPOINT"))
 
 nutrionix_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
@@ -49,5 +49,5 @@ for exercise in result["exercises"]:
         }
     }
 
-    sheet_resp = requests.post(url=SHEETY_ENDPOINT, json=sheety_params)
+    sheet_resp = requests.post(url=SHEETY_WORKOUT_ENDPOINT, json=sheety_params)
     # print(sheet_resp.text)
