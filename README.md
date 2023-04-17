@@ -45,6 +45,7 @@
 - [Day 37](https://github.com/a092devs/100-days-of-python/tree/master/day037) - Habit Tracking Project: API Post Requests & Headers
 - [Day 38](https://github.com/a092devs/100-days-of-python/tree/master/day038) - Workout Tracking Using Google Sheets
 - [Day 39](https://github.com/a092devs/100-days-of-python/tree/master/day039) - Capstone Part 1: Flight Deal Finder
+- [Day 40](https://github.com/a092devs/100-days-of-python/tree/master/day040) - Capstone Part 2: Flight Club
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
