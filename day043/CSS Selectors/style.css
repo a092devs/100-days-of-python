@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+}
+
+ol {
+  margin-left: -40px;
+  margin-top: -20px;
+  list-style-position: inside;
+}
+
+p {
+  color: red;
+}
+
+li[value="4"] {
+  color: blue;
+}
+
+.note {
+  font-size: 20px;
+}
+
+#id-selector-demo {
+  color: green;
+}

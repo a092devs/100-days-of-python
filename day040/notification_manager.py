@@ -1,37 +1,31 @@
 import smtplib
+import requests
 from os import environ
 from dotenv import load_dotenv
-from twilio.rest import Client
 
 load_dotenv('config.env', override=True)
 
-TWILIO_SID = environ.get("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = environ.get("TWILIO_AUTH_TOKEN")
-TWILIO_VIRTUAL_NUMBER = environ.get("TWILIO_NUMBER")
-TWILIO_VERIFIED_NUMBER = environ.get("MY_NUMBER")
+BOT_TOKEN = environ.get("BOT_TOKEN")
+CHAT_ID = environ.get("CHAT_ID")
 MAIL_PROVIDER_SMTP_ADDRESS = "smtp.mail.yahoo.com"
 MY_EMAIL = environ.get("MY_EMAIL")
 MY_PASSWORD = environ.get("MY_PASSWORD")
 
 class NotificationManager:
-    def __init__(self):
-        self.client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
+    def telegram_bot_send_text(self, bot_message):
+        bot_token = BOT_TOKEN
+        bot_chatID = CHAT_ID
+        send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={bot_chatID}&parse_mode=Markdown&text={bot_message}'
+        bot_response = requests.get(send_text)
+        return bot_response.json()
 
-    def send_sms(self, message):
-        message = self.client.messages.create(
-            body=message,
-            from_=TWILIO_VIRTUAL_NUMBER,
-            to=TWILIO_VERIFIED_NUMBER,
-        )
-        print(message.sid)
-
-    def send_emails(self, emails, message):
-        with smtplib.SMTP(MAIL_PROVIDER_SMTP_ADDRESS) as connection:
+    def send_emails(self, emails, message, google_flight_link):
+        with smtplib.SMTP(MAIL_PROVIDER_SMTP_ADDRESS, 587) as connection:
             connection.starttls()
             connection.login(MY_EMAIL, MY_PASSWORD)
             for email in emails:
                 connection.sendmail(
                     from_addr=MY_EMAIL,
                     to_addrs=email,
-                    msg=f"Subject:New Low Price Flight!\n\n{message}".encode('utf-8')
+                    msg=f"Subject:New Low Price Flight!\n\n{message}\n{google_flight_link}".encode('utf-8')
                 )

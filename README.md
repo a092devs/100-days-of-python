@@ -48,6 +48,7 @@
 - [Day 40](https://github.com/a092devs/100-days-of-python/tree/master/day040) - Capstone Part 2: Flight Club
 - [Day 41](https://github.com/a092devs/100-days-of-python/tree/master/day041) - Introduction to HTML
 - [Day 42](https://github.com/a092devs/100-days-of-python/tree/master/day042) - Intermediate HTML
+- [Day 43](https://github.com/a092devs/100-days-of-python/tree/master/day043) - Introduction to CSS
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
@@ -65,3 +66,4 @@
 - APIs
 - Authentication
 - HTML 5
+- CSS 3
