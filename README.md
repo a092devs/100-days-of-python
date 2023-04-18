@@ -47,6 +47,7 @@
 - [Day 39](https://github.com/a092devs/100-days-of-python/tree/master/day039) - Capstone Part 1: Flight Deal Finder
 - [Day 40](https://github.com/a092devs/100-days-of-python/tree/master/day040) - Capstone Part 2: Flight Club
 - [Day 41](https://github.com/a092devs/100-days-of-python/tree/master/day041) - Introduction to HTML
+- [Day 42](https://github.com/a092devs/100-days-of-python/tree/master/day042) - Intermediate HTML
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
@@ -63,3 +64,4 @@
 - Python Telegram Bot
 - APIs
 - Authentication
+- HTML 5
