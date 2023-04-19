@@ -49,6 +49,7 @@
 - [Day 41](https://github.com/a092devs/100-days-of-python/tree/master/day041) - Introduction to HTML
 - [Day 42](https://github.com/a092devs/100-days-of-python/tree/master/day042) - Intermediate HTML
 - [Day 43](https://github.com/a092devs/100-days-of-python/tree/master/day043) - Introduction to CSS
+- [Day 44](https://github.com/a092devs/100-days-of-python/tree/master/day044) - Intermediate CSS
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
