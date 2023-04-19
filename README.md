@@ -50,6 +50,7 @@
 - [Day 42](https://github.com/a092devs/100-days-of-python/tree/master/day042) - Intermediate HTML
 - [Day 43](https://github.com/a092devs/100-days-of-python/tree/master/day043) - Introduction to CSS
 - [Day 44](https://github.com/a092devs/100-days-of-python/tree/master/day044) - Intermediate CSS
+- [Day 45](https://github.com/a092devs/100-days-of-python/tree/master/day045) - Web Scraping with BeautifulSoup
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
@@ -68,3 +69,4 @@
 - Authentication
 - HTML 5
 - CSS 3
+- Web Scraping
