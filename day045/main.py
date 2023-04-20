@@ -13,5 +13,4 @@ movie_titles = [movie.getText() for movie in all_movies]
 movies = movie_titles[::-1]
 
 with open('./day045/movies.txt', mode='w', encoding="utf-8") as file:
-    for movie in movies:
-        file.write(f"{movie}\n")
+    file.write("\n".join(movies))
