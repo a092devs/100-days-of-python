@@ -52,6 +52,7 @@
 - [Day 44](https://github.com/a092devs/100-days-of-python/tree/master/day044) - Intermediate CSS
 - [Day 45](https://github.com/a092devs/100-days-of-python/tree/master/day045) - Web Scraping with BeautifulSoup
 - [Day 46](https://github.com/a092devs/100-days-of-python/tree/master/day046) - Create a Spotify Playlist Using The Musical Time Machine
+- [Day 47](https://github.com/a092devs/100-days-of-python/tree/master/day047) - Create an Automated Amazon Price Tracker
 
 ## ⚙ Tools and Technologies Covered
 - Python 3

@@ -4,7 +4,7 @@ from dateutil.parser import isoparse
 import time
 import smtplib
 
-MY_EMAIL = "my_email_was_here"
+FROM_EMAIL = "my_email_was_here"
 PASSWORD = "my_pass_was_here"
 MY_LAT = 23.603900
 MY_LONG = 87.117700
@@ -49,8 +49,8 @@ while True:
     if is_iss_overhead() and is_night():
         with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
             connection.starttls()
-            connection.login(MY_EMAIL, PASSWORD)
+            connection.login(FROM_EMAIL, PASSWORD)
             connection.sendmail(
-                from_addr=MY_EMAIL,
+                from_addr=FROM_EMAIL,
                 to_addrs="a092devs@email.com",
                 msg="Subject:Look Up👆🏼\n\nThe ISS is above you in the sky!".encode("utf-8"))

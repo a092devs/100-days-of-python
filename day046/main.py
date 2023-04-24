@@ -9,7 +9,7 @@ load_dotenv("config.env", override=True)
 CLIENT_ID = environ.get("CLIENT_ID")
 CLIENT_SECRET = environ.get("CLIENT_SECRET")
 
-date = input("Which day do you want to travel to? Type the date in this format: YYYY-MM-DD: ")
+date = input("Which day do you want to travel to? Type the date in this format YYYY-MM-DD: ")
 
 URL = f"https://www.billboard.com/charts/hot-100/{date}/"
 response = requests.get(URL)
