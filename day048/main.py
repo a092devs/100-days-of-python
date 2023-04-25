@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
 import time
 
@@ -22,7 +22,6 @@ store_dict = {
     6: "Portal",
     7: "Time machine",
 }
-
 
 def cookie_clicker():
     check = time.time() + 5

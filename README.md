@@ -75,3 +75,4 @@
 - BeautifulSoup
 - Web Scraping
 - Selenium WebDriver
+- Regular Expressions (Regex)
