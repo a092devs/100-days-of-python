@@ -55,6 +55,7 @@
 - [Day 47](https://github.com/a092devs/100-days-of-python/tree/master/day047) - Create an Automated Amazon Price Tracker
 - [Day 48](https://github.com/a092devs/100-days-of-python/tree/master/day048) - Selenium Webdriver Browser and Game Playing Bot
 - [Day 49](https://github.com/a092devs/100-days-of-python/tree/master/day049) - Automating Job Applications on LinkedIn
+- [Day 50](https://github.com/a092devs/100-days-of-python/tree/master/day050) - Extend Expiry on PythonAnywhere
 
 ## ⚙ Tools and Technologies Covered
 - Python 3

@@ -35,9 +35,7 @@ time.sleep(5)
 
 jobs = driver.find_elements(by=By.CLASS_NAME, value='job-card-list__title')
 jobs_available = [job.text for job in jobs]
-print(jobs_available)
 
-# Select job posting and click on apply
 while jobs_available:
     posting_num = 0
     try:
