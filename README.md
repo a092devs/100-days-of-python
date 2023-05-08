@@ -56,6 +56,7 @@
 - [Day 48](https://github.com/a092devs/100-days-of-python/tree/master/day048) - Selenium Webdriver Browser and Game Playing Bot
 - [Day 49](https://github.com/a092devs/100-days-of-python/tree/master/day049) - Automating Job Applications on LinkedIn
 - [Day 50](https://github.com/a092devs/100-days-of-python/tree/master/day050) - Extend Expiry on PythonAnywhere
+- [Day 51](https://github.com/a092devs/100-days-of-python/tree/master/day051) - Internet Speed Twitter Complaint Bot
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
