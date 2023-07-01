@@ -3,8 +3,8 @@ import time
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 
 class ExtendExpiryBot:
     def __init__(self, driver_path, mode='default'):
@@ -15,7 +15,7 @@ class ExtendExpiryBot:
         elif mode == 'default':
             self.options.add_experimental_option('detach', True)
 
-        self.driver = webdriver.Edge(
+        self.driver = webdriver.Chrome(
             service=self.service, options=self.options
         )
         self.website_url = 'https://www.pythonanywhere.com/'
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     USER = os.environ.get('PA_USER')
     PASSWORD = os.environ.get('PA_PASS')
 
-    webdriver_path = r'C:\Development\chromedriver\msedgedriver.exe'
+    webdriver_path = r'C:\Development\chromedriver'
     expBot = ExtendExpiryBot(webdriver_path)
     expBot.open_website()
     time.sleep(2)

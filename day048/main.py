@@ -1,10 +1,10 @@
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
-service = Service("C:\Development\chromedriver\msedgedriver.exe")
-driver = webdriver.Edge(service=service)
+service = Service("C:\Development\chromedriver")
+driver = webdriver.Chrome(service=service)
 driver.maximize_window()
 driver.get("http://orteil.dashnet.org/experiments/cookie/")
 

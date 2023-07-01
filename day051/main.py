@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 
 load_dotenv('config.env', override=True)
 
@@ -14,13 +14,13 @@ TWITTER_PASS = environ.get("TWITTER_PASS")
 PROMISED_UP = 125
 PROMISED_DOWN = 125
 
-service = Service("C:\Development\chromedriver\msedgedriver.exe")
+service = Service("C:\Development\chromedriver")
 options = Options()
 options.add_experimental_option("detach", True)
 
 class InternetSpeedTwitterBot:
     def __init__(self):
-        self.driver = webdriver.Edge(service=service, options=options)
+        self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.maximize_window()
         self.down = 0
         self.up = 0

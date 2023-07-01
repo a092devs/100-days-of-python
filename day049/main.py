@@ -3,8 +3,8 @@ import time
 import dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 
 dotenv.load_dotenv("config.env", True)
@@ -12,7 +12,7 @@ dotenv.load_dotenv("config.env", True)
 MY_LID_EMAIL = os.environ.get("MY_LID_EMAIL")
 MY_LID_PASS = os.environ.get("MY_LID_PASS")
 
-service = Service('C:\Development\chromedriver\msedgedriver.exe')
+service = Service('C:\Development\chromedriver')
 
 options = Options()
 options.add_experimental_option("detach", True)
