@@ -1,17 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import ElementClickInterceptedException
-import os
-from dotenv import load_dotenv
 import time
+from os import environ
+from dotenv import load_dotenv
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import ElementClickInterceptedException
 
-CHROME_DRIVER_PATH = "C:\Development\chromedriver.exe"
+CHROME_DRIVER_PATH = "C:\Development\chromedriver\chromediver.exe"
 TARGET_ACCOUNT = "ufc"
 
 load_dotenv("config.env")
-USERNAME = os.getenv("INSTA_ID")
-PASSWORD = os.getenv("INSTA_PASS")
+USERNAME = environ("INSTA_ID")
+PASSWORD = environ("INSTA_PASS")
 
 
 class InstaFollowerBot:
@@ -55,7 +55,6 @@ class InstaFollowerBot:
             except ElementClickInterceptedException:
                 cancel_button = self.driver.find_element(By.XPATH, value='/html/body/div[5]/div/div/div/div[3]/button[2]')
                 cancel_button.click()
-
 
 bot = InstaFollowerBot(CHROME_DRIVER_PATH)
 bot.login()

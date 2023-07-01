@@ -58,6 +58,7 @@
 - [Day 50](https://github.com/a092devs/100-days-of-python/tree/master/day050) - Extend Expiry on PythonAnywhere
 - [Day 51](https://github.com/a092devs/100-days-of-python/tree/master/day051) - Internet Speed Twitter Complaint Bot
 - [Day 52](https://github.com/a092devs/100-days-of-python/tree/master/day052) - Instagram Follower Bot
+- [Day 53](https://github.com/a092devs/100-days-of-python/tree/master/day053) - Web Scraping Capstone - Data Entry Job Automation
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
