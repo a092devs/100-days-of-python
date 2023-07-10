@@ -61,6 +61,7 @@
 - [Day 53](https://github.com/a092devs/100-days-of-python/tree/master/day053) - Web Scraping Capstone - Data Entry Job Automation
 - [Day 54](https://github.com/a092devs/100-days-of-python/tree/master/day054) - Introduction to Web Development with Flask
 - [Day 55](https://github.com/a092devs/100-days-of-python/tree/master/day055) - HTML & URL Parsing in Flask and the Higher Lower Game
+- [Day 56](https://github.com/a092devs/100-days-of-python/tree/master/day056) - Rendering HTML/Static files and Using Website Templates
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
