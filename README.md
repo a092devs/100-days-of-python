@@ -1,5 +1,4 @@
-<h1 align="center">100 Days of Code: The Complete Python Pro Bootcamp
-</h1>
+<h1 align="center">100 Days of Code: The Complete Python Pro Bootcamp</h1>
 
 ## 🔰 Beginner 
 - [Day 1](https://github.com/a092devs/100-days-of-python/tree/master/day001) - Working with Variables in Python to Manage Data
@@ -62,6 +61,7 @@
 - [Day 54](https://github.com/a092devs/100-days-of-python/tree/master/day054) - Introduction to Web Development with Flask
 - [Day 55](https://github.com/a092devs/100-days-of-python/tree/master/day055) - HTML & URL Parsing in Flask and the Higher Lower Game
 - [Day 56](https://github.com/a092devs/100-days-of-python/tree/master/day056) - Rendering HTML/Static files and Using Website Templates
+- [Day 57](https://github.com/a092devs/100-days-of-python/tree/master/day057) - Templating with Jinja in Flask Applications
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
