@@ -62,25 +62,42 @@
 - [Day 55](https://github.com/a092devs/100-days-of-python/tree/master/day055) - HTML & URL Parsing in Flask and the Higher Lower Game
 - [Day 56](https://github.com/a092devs/100-days-of-python/tree/master/day056) - Rendering HTML/Static files and Using Website Templates
 - [Day 57](https://github.com/a092devs/100-days-of-python/tree/master/day057) - Templating with Jinja in Flask Applications
+- [Day 58](https://github.com/a092devs/100-days-of-python/tree/master/day058) - Web Foundation Bootstrap
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
-- VSCode
+- VS Code, Jupyter Notebook, Google Colab
 - Python Scripting and Automation
 - Python Game Development
-- Git, GitHub and Version Control
+- Web Scraping
+- Beautiful Soup
+- Selenium Web Driver
 - Request
-- Turtle
+- WTForms
+- Data Science
 - Pandas
+- NumPy
+- Matplotlib
+- Plotly
+- Scikit learn
+- Seaborn
+- Turtle
 - Python GUI Desktop App Development
 - Tkinter
-- Pyinstaller
-- Python Telegram Bot
-- APIs
-- Authentication
+- Front-End Web Development
 - HTML 5
 - CSS 3
-- BeautifulSoup
-- Web Scraping
-- Selenium WebDriver
-- Regular Expressions (Regex)
+- Bootstrap 4
+- Bash Command Line
+- Git, GitHub and Version Control
+- Backend Web Development
+- Flask
+- REST
+- APIs
+- Databases
+- SQL
+- SQLite
+- PostgreSQL
+- Authentication
+- Web Design
+- Deployment with GitHub Pages, Heroku and GUnicorn
