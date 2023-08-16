@@ -64,6 +64,9 @@
 - [Day 57](https://github.com/a092devs/100-days-of-python/tree/master/day057) - Templating with Jinja in Flask Applications
 - [Day 58](https://github.com/a092devs/100-days-of-python/tree/master/day058) - Web Foundation Bootstrap
 
+## 🏆 Advanced
+- [Day 59](https://github.com/a092devs/100-days-of-python/tree/master/day059) - Blog Capstone Project Part 2 - Adding Styling
+
 ## ⚙ Tools and Technologies Covered
 - Python 3
 - VS Code, Jupyter Notebook, Google Colab
