@@ -1,0 +1,14 @@
+click
+dnspython
+dominate
+email-validator
+Flask
+Flask-Bootstrap
+Flask-WTF
+idna
+itsdangerous
+Jinja2
+MarkupSafe
+visitor
+Werkzeug
+WTForms
