@@ -3,9 +3,13 @@ from datetime import datetime
 from dateutil.parser import isoparse
 import time
 import smtplib
+from os import environ
+from dotenv import load_dotenv
 
-FROM_EMAIL = "my_email_was_here"
-PASSWORD = "my_pass_was_here"
+load_dotenv('config.env', override=True)
+
+FROM_EMAIL = environ.get("FROM_EMAIL")
+PASSWORD = environ.get("FROM_PASSWORD")
 MY_LAT = 23.603900
 MY_LONG = 87.117700
 
@@ -47,7 +51,7 @@ def is_night():
 while True:
     time.sleep(60)
     if is_iss_overhead() and is_night():
-        with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
+        with smtplib.SMTP("smtp.gmail.com", 587) as connection:
             connection.starttls()
             connection.login(FROM_EMAIL, PASSWORD)
             connection.sendmail(

@@ -14,7 +14,7 @@ if weekday == 2:
         quote = random.choice(all_quotes)
 
     # print(quote)
-    with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(email, password)
         connection.sendmail(from_addr=email,

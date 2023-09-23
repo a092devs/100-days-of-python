@@ -7,7 +7,7 @@ load_dotenv('config.env', override=True)
 
 BOT_TOKEN = environ.get("BOT_TOKEN")
 CHAT_ID = environ.get("CHAT_ID")
-MAIL_PROVIDER_SMTP_ADDRESS = "smtp.mail.yahoo.com"
+MAIL_PROVIDER_SMTP_ADDRESS = "smtp.gmail.com"
 FROM_EMAIL = environ.get("FROM_EMAIL")
 FROM_PASSWORD = environ.get("FROM_PASSWORD")
 

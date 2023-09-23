@@ -19,7 +19,7 @@ for bday in bday_dict:
         with open(f"letter_templates/letter_{random.randint(1, 3)}.txt") as letter:
             mail = letter.read()
             mail = mail.replace("[NAME]", name)
-            with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
+            with smtplib.SMTP("smtp.gmail.com", 587) as connection:
                 connection.starttls()
                 connection.login(email, password)
                 connection.sendmail(from_addr=email,

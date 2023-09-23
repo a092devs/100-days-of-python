@@ -48,7 +48,7 @@ else:
     exit()
 
 if price < user_price:
-    with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(FROM_EMAIL, FROM_PASSWORD)
         connection.sendmail(from_addr=FROM_EMAIL,
