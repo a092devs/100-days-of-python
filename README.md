@@ -68,6 +68,7 @@
 - [Day 59](https://github.com/a092devs/100-days-of-python/tree/master/day059) - Blog Capstone Project Part 2 - Adding Styling
 - [Day 60](https://github.com/a092devs/100-days-of-python/tree/master/day060) - Make POST Requests with Flask and HTML Forms
 - [Day 61](https://github.com/a092devs/100-days-of-python/tree/master/day061) - Building Advanced Forms with Flask-WTForms
+- [Day 62](https://github.com/a092devs/100-days-of-python/tree/master/day062) - Flask, WTForms, Bootstrap, and CSV - Coffee & Wifi Project
 
 ## ⚙ Tools and Technologies Covered
 - Python 3
