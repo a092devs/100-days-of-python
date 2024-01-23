@@ -1,6 +1,7 @@
 from replit import clear
 from art import logo
 
+
 def check_winner(_bid_dict):
     winner = ""
     winner_list = []
@@ -14,7 +15,7 @@ def check_winner(_bid_dict):
         elif bid_dict[person] == highest_price:
             winner_list.append(person)
 
-    if highest_price == 0: 
+    if highest_price == 0:
         print("Nobody win.")
         exit()
     elif len(winner_list) == 1:
@@ -24,6 +25,7 @@ def check_winner(_bid_dict):
         winners = ", ".join(winner_list)
         print(f"The Winners are {winners} with a bid of ${highest_price}")
         return winner_list, highest_price
+
 
 def rebid(_winner_list, _minimum_price):
     print("To decide a winner, rebidding will take place now.")
@@ -35,9 +37,10 @@ def rebid(_winner_list, _minimum_price):
         if price < _minimum_price:
             price = 0
         _bid_dict[bidder] = price
-        clear() 
-    return(_bid_dict)
-       
+        clear()
+    return _bid_dict
+
+
 print(logo)
 bid_dict = {}
 
@@ -53,6 +56,6 @@ while True:
 
 (winner_list, minimum_price) = check_winner(bid_dict)
 
-while(True):
-    bid_dict = rebid(winner_list,minimum_price);
+while True:
+    bid_dict = rebid(winner_list, minimum_price)
     (winner_list, minimum_price) = check_winner(bid_dict)

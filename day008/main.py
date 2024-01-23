@@ -1,5 +1,6 @@
 from art import logo
 
+
 def caesar(message, shift):
     result = ""
     for letter in range(len(message)):
@@ -12,6 +13,7 @@ def caesar(message, shift):
             result += str(message[letter])
     return result
 
+
 print(logo)
 
 while True:
@@ -20,6 +22,8 @@ while True:
     print(f"Plain text: {text}")
     print(f"Shift number: {shift}")
     print(f"Cipher: {caesar(text, shift)}")
-    start_again = input("\nDo you want to encode\decode another message?\nType 'y' for yes and 'n' for no.\n").lower()
+    start_again = input(
+        "\nDo you want to encode\decode another message?\nType 'y' for yes and 'n' for no.\n"
+    ).lower()
     if start_again in ["no", "n"]:
         break

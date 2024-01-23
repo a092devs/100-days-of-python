@@ -3,11 +3,14 @@ from art import *
 from game_data import data
 from replit import clear
 
+
 def guessed(guess, followers_a, followers_b):
-    return followers_a > followers_b if guess == 'a' else followers_a < followers_b
+    return followers_a > followers_b if guess == "a" else followers_a < followers_b
+
 
 def print_info(account):
-    return (f"{account['name']}, a {account['description']}, from {account['country']}")
+    return f"{account['name']}, a {account['description']}, from {account['country']}"
+
 
 def play_game():
     score = 0
@@ -29,8 +32,8 @@ def play_game():
 
         guess = input("Who has more follower? Type 'A' or 'B': ").lower()
 
-        followers_a = option_a['follower_count']
-        followers_b = option_b['follower_count']
+        followers_a = option_a["follower_count"]
+        followers_b = option_b["follower_count"]
 
         clear()
         print(logo)
@@ -41,5 +44,6 @@ def play_game():
         else:
             print(f"Sorry, thats's wrong. Final score: {score}")
             break
+
 
 play_game()

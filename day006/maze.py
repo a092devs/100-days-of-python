@@ -1,13 +1,14 @@
 # This code will run on Reeborg's World website: https://reeborg.ca/reeborg.html (Maze)
-def turn_right():    
+def turn_right():
     turn_left()
     turn_left()
     turn_left()
-    
+
+
 while front_is_clear():
     move()
 turn_left()
-    
+
 while not at_goal():
     if right_is_clear():
         turn_right()

@@ -1,12 +1,14 @@
 from coffee import *
 from replit import clear
 
+
 def report():
     water = resources["water"]
     milk = resources["milk"]
     coffee = resources["coffee"]
     money = resources["money"]
     return f"Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g\nMoney: ${money}"
+
 
 def check_coin(cents, nickels, dimes, quarters, coffee):
     total_cents = 0.01 * cents
@@ -27,6 +29,7 @@ def check_coin(cents, nickels, dimes, quarters, coffee):
             print(f"Here is ${change} in change!")
         return True
 
+
 def check_sufficient_ingredient(coffee_ingredients):
     for item in coffee_ingredients:
         if coffee_ingredients[item] > resources[item]:
@@ -34,9 +37,11 @@ def check_sufficient_ingredient(coffee_ingredients):
             return False
     return True
 
+
 def adjust_resources(coffee_ingredients):
     for item in coffee_ingredients:
         resources[item] -= coffee_ingredients[item]
+
 
 clear()
 print(logo)
@@ -56,7 +61,7 @@ while in_menu:
             dimes = int(input("\thow many dimes? "))
             nickels = int(input("\thow many nickels? "))
             cents = int(input("\thow many cents? "))
- 
+
             if check_coin(cents, nickels, dimes, quarters, coffee):
                 print(f"\tHere is your {option} ☕. Enjoy!")
                 resources["money"] += coffee["cost"]

@@ -1,23 +1,24 @@
 from art import logo
 
+
 def add(n1, n2):
     return n1 + n2
+
 
 def subtract(n1, n2):
     return n1 - n2 if n1 > n2 else n2 - n1
 
+
 def multiply(n1, n2):
     return n1 * n2
+
 
 def divide(n1, n2):
     return n1 / n2 if n2 != 0 else "Indeterminate operation"
 
-operations = {
-    "+": add,
-    "-": subtract,
-    "*": multiply,
-    "/": divide
-}
+
+operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
+
 
 def calculator():
     print(logo)
@@ -34,12 +35,15 @@ def calculator():
 
         print(f"{num1} {operator} {num2} = {result}")
 
-        choice = input(f"Type 'y' to continue calculating with {result} or 'n' to start a new calculation or 'e' to exit: ").lower()
+        choice = input(
+            f"Type 'y' to continue calculating with {result} or 'n' to start a new calculation or 'e' to exit: "
+        ).lower()
         if choice in ["y", "yes"]:
             num1 = result
         elif choice in ["n", "no"]:
             num1 = int(input("What's the first number? "))
         else:
             break
+
 
 calculator()
