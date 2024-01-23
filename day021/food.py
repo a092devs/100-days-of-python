@@ -1,6 +1,7 @@
 from turtle import Turtle
 from random import randint
 
+
 class Food(Turtle):
     def __init__(self):
         super().__init__()
@@ -10,7 +11,7 @@ class Food(Turtle):
         self.color("blue")
         self.speed("fastest")
         self.refresh()
-    
+
     def refresh(self):
         random_x = randint(-14, 14) * 20
         random_y = randint(-14, 14) * 20

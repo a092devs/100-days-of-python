@@ -4,8 +4,9 @@ from random import choice, randint, shuffle
 import pyperclip
 import os, sys
 
+
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
+    """Get absolute path to resource, works for dev and for PyInstaller"""
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
@@ -14,16 +15,67 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+
 Logo = resource_path("logo.png")
 
+
 def generate_password():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-               'u', 'v',
-               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-               'Q', 'R',
-               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '*', '(', ')', '-', '_', '+']
+    letters = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    symbols = ["!", "#", "$", "%", "&", "*", "(", ")", "-", "_", "+"]
 
     password_list = [choice(letters) for _ in range(randint(8, 10))]
     password_list += [choice(symbols) for _ in range(randint(2, 4))]
@@ -36,19 +88,26 @@ def generate_password():
 
     password_entry.insert(0, password)
 
+
 def save():
     website = website_entry.get()
     email = email_username_entry.get()
     password = password_entry.get()
 
     if len(password) == 0 or len(website) == 0:
-        messagebox.showwarning(title="Empty fields", message="Please don't leave any empty fields")
-    elif messagebox.askokcancel(title=website, message=f"You've entered: \nEmail: {email}\nPassword: {password}"
-                                                       f"\nIs it OK to save?"):
+        messagebox.showwarning(
+            title="Empty fields", message="Please don't leave any empty fields"
+        )
+    elif messagebox.askokcancel(
+        title=website,
+        message=f"You've entered: \nEmail: {email}\nPassword: {password}"
+        f"\nIs it OK to save?",
+    ):
         with open("data.txt", mode="a") as file:
             file.write(f"{website} | {email} | {password}\n")
             website_entry.delete(0, END)
             password_entry.delete(0, END)
+
 
 window = Tk()
 window.title("Password Manager")

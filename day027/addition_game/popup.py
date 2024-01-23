@@ -2,6 +2,7 @@ import tkinter
 
 FONT = ("Consolas", 16, "normal")
 
+
 class Popup(tkinter.Tk):
     def __init__(self, title, text):
         super().__init__()
@@ -18,7 +19,9 @@ class Popup(tkinter.Tk):
         self.label.grid(column=0, row=0, columnspan=2)
 
     def generate_button(self):
-        self.button = tkinter.Button(self, text="OK", font=FONT, command=self.exit_window)
+        self.button = tkinter.Button(
+            self, text="OK", font=FONT, command=self.exit_window
+        )
         self.button.grid(column=1, row=1)
 
     def keypress_handler(self, event):

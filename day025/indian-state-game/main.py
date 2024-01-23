@@ -13,7 +13,10 @@ guessed_states = []
 
 while len(guessed_states) < 30:
     print(guessed_states)
-    answer_state = screen.textinput(title=f"{len(guessed_states)}/30 states correct", prompt="What's another state's name ?").title()
+    answer_state = screen.textinput(
+        title=f"{len(guessed_states)}/30 states correct",
+        prompt="What's another state's name ?",
+    ).title()
     print(answer_state)
 
     if answer_state == "Exit":

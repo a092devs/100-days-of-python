@@ -9,7 +9,9 @@ load_dotenv("config.env", override=True)
 CLIENT_ID = environ.get("CLIENT_ID")
 CLIENT_SECRET = environ.get("CLIENT_SECRET")
 
-date = input("Which day do you want to travel to? Type the date in this format YYYY-MM-DD: ")
+date = input(
+    "Which day do you want to travel to? Type the date in this format YYYY-MM-DD: "
+)
 
 URL = f"https://www.billboard.com/charts/hot-100/{date}/"
 response = requests.get(URL)
@@ -17,8 +19,20 @@ website_html = response.text
 
 soup = BeautifulSoup(website_html, "html.parser")
 
-all_songs = soup.find_all(name="h3", class_="c-title a-no-trucate a-font-primary-bold-s u-letter-spacing-0021 lrv-u-font-size-18@tablet lrv-u-font-size-16 u-line-height-125 u-line-height-normal@mobile-max a-truncate-ellipsis u-max-width-330 u-max-width-230@tablet-only", id="title-of-a-story")
-number_one = soup.find(name="h3", class_="c-title a-no-trucate a-font-primary-bold-s u-letter-spacing-0021 u-font-size-23@tablet lrv-u-font-size-16 u-line-height-125 u-line-height-normal@mobile-max a-truncate-ellipsis u-max-width-245 u-max-width-230@tablet-only u-letter-spacing-0028@tablet", id="title-of-a-story").getText().replace("\n", "")
+all_songs = soup.find_all(
+    name="h3",
+    class_="c-title a-no-trucate a-font-primary-bold-s u-letter-spacing-0021 lrv-u-font-size-18@tablet lrv-u-font-size-16 u-line-height-125 u-line-height-normal@mobile-max a-truncate-ellipsis u-max-width-330 u-max-width-230@tablet-only",
+    id="title-of-a-story",
+)
+number_one = (
+    soup.find(
+        name="h3",
+        class_="c-title a-no-trucate a-font-primary-bold-s u-letter-spacing-0021 u-font-size-23@tablet lrv-u-font-size-16 u-line-height-125 u-line-height-normal@mobile-max a-truncate-ellipsis u-max-width-245 u-max-width-230@tablet-only u-letter-spacing-0028@tablet",
+        id="title-of-a-story",
+    )
+    .getText()
+    .replace("\n", "")
+)
 song_titles = [song.getText().replace("\n", "") for song in all_songs]
 song_titles.insert(0, number_one)
 
@@ -46,5 +60,7 @@ for song in song_titles:
     except IndexError:
         print(f"{song} doesn't exist in Spotify. Skipped.")
 
-playlist = sp.user_playlist_create(user=user_id, name=f"{date} Billboard 100", public=False)
+playlist = sp.user_playlist_create(
+    user=user_id, name=f"{date} Billboard 100", public=False
+)
 sp.playlist_add_items(playlist_id=playlist["id"], items=song_uris)

@@ -3,6 +3,7 @@ from turtle import Turtle
 ALIGNMENT = "center"
 FONT = ("Courier", 24, "normal")
 
+
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
@@ -17,7 +18,11 @@ class Scoreboard(Turtle):
     def update_scoreboard(self):
         self.clear()
         self.read_file()
-        self.write(f"Score: {self.score} High Score: {self.high_score}", align=ALIGNMENT, font=FONT)
+        self.write(
+            f"Score: {self.score} High Score: {self.high_score}",
+            align=ALIGNMENT,
+            font=FONT,
+        )
 
     def reset(self):
         if self.score > self.high_score:

@@ -22,6 +22,8 @@ for bday in bday_dict:
             with smtplib.SMTP("smtp.gmail.com", 587) as connection:
                 connection.starttls()
                 connection.login(email, password)
-                connection.sendmail(from_addr=email,
-                                    to_addrs=f"{bday['email']}",
-                                    msg=f"Subject:HAPPY BIRTHDAY\n\n{mail}")
+                connection.sendmail(
+                    from_addr=email,
+                    to_addrs=f"{bday['email']}",
+                    msg=f"Subject:HAPPY BIRTHDAY\n\n{mail}",
+                )

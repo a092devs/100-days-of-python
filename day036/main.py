@@ -3,7 +3,7 @@ import time
 from os import environ
 from dotenv import load_dotenv
 
-load_dotenv('config.env', override=True)
+load_dotenv("config.env", override=True)
 
 STOCK_NAME = "TSLA"
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
@@ -13,12 +13,14 @@ NEWS_API_KEY = environ.get("NEWS_API_KEY")
 BOT_TOKEN = environ.get("BOT_TOKEN")
 CHAT_ID = environ.get("CHAT_ID")
 
+
 def telegram_bot_send_text(bot_message):
     bot_token = BOT_TOKEN
     bot_chatID = CHAT_ID
-    send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={bot_chatID}&parse_mode=Markdown&text={bot_message}'
+    send_text = f"https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={bot_chatID}&parse_mode=Markdown&text={bot_message}"
     bot_response = requests.get(send_text)
     return bot_response.json()
+
 
 def get_change(current, previous):
     if current == previous:
@@ -27,6 +29,7 @@ def get_change(current, previous):
         return round(abs(current - previous) / previous, 5) * 100.0
     except ZeroDivisionError:
         return 0
+
 
 while True:
     alpha_vantage_parameters = {
@@ -41,7 +44,9 @@ while True:
         "apiKey": NEWS_API_KEY,
     }
 
-    alpha_vantage_response = requests.get(STOCK_ENDPOINT, params=alpha_vantage_parameters)
+    alpha_vantage_response = requests.get(
+        STOCK_ENDPOINT, params=alpha_vantage_parameters
+    )
     alpha_vantage_response.raise_for_status()
     stock_data = alpha_vantage_response.json()
 
@@ -50,8 +55,8 @@ while True:
     news_data = news_api_response.json()
 
     closing_prices = [
-        stock_data['Time Series (Daily)'][date]['4. close']
-        for _, date in zip(range(3), stock_data['Time Series (Daily)'])
+        stock_data["Time Series (Daily)"][date]["4. close"]
+        for _, date in zip(range(3), stock_data["Time Series (Daily)"])
     ]
 
     yd_price = float(closing_prices[0])
@@ -70,7 +75,7 @@ while True:
             news_description = [
                 f"*Description:* `{news_data['articles'][article]['description']}`"
             ]
-            news = (market_performance + news_headlines + news_description)
+            news = market_performance + news_headlines + news_description
             joined_string = "\n".join(news)
             telegram_bot_send_text(joined_string)
-    time.sleep(3600) # Wait for 1 hour before running the bot again
+    time.sleep(3600)  # Wait for 1 hour before running the bot again

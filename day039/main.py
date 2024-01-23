@@ -24,7 +24,7 @@ for destination in sheet_data:
         ORIGIN_CITY_IATA,
         destination["iataCode"],
         from_time=tomorrow,
-        to_time=six_month_from_today
+        to_time=six_month_from_today,
     )
     if flight.price < destination["lowestPrice"]:
         notification_manager.telegram_bot_send_text(

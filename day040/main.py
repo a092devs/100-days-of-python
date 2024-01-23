@@ -21,8 +21,10 @@ destinations = {
     data["iataCode"]: {
         "id": data["id"],
         "city": data["city"],
-        "price": data["lowestPrice"]
-    } for data in sheet_data}
+        "price": data["lowestPrice"],
+    }
+    for data in sheet_data
+}
 
 tomorrow = datetime.now() + timedelta(days=1)
 six_month_from_today = datetime.now() + timedelta(days=6 * 30)
@@ -32,7 +34,7 @@ for destination_code, value in destinations.items():
         ORIGIN_CITY_IATA,
         destination_code,
         from_time=tomorrow,
-        to_time=six_month_from_today
+        to_time=six_month_from_today,
     )
     print(flight.price)
     if flight is None:
@@ -44,6 +46,8 @@ for destination_code, value in destinations.items():
         names = [row["firstName"] for row in users]
         message = f"Low price alert! Only £{flight.price} to fly from {flight.origin_city}-{flight.origin_airport} to {flight.destination_city}-{flight.destination_airport}, from {flight.out_date} to {flight.return_date}."
         if flight.stop_overs > 0:
-            message += f"\nFlight has {flight.stop_overs} stop over, via {flight.via_city}."
+            message += (
+                f"\nFlight has {flight.stop_overs} stop over, via {flight.via_city}."
+            )
         link = f"https://www.google.co.uk/flights?hl=en#flt={flight.origin_airport}.{flight.destination_airport}.{flight.out_date}*{flight.destination_airport}.{flight.origin_airport}.{flight.return_date}"
         notification_manager.send_emails(emails, message, link)

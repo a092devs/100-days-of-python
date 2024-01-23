@@ -1,5 +1,6 @@
 from random import randint
 
+
 class MathProblem:
     def __init__(self):
         self.num1 = 0

@@ -3,7 +3,7 @@ import requests
 from datetime import datetime
 from dotenv import load_dotenv
 
-load_dotenv('config.env', override=True)
+load_dotenv("config.env", override=True)
 
 PIXELA_TOKEN = os.getenv("PIXELA_TOKEN")
 PIXELA_UNAME = os.getenv("PIXELA_UNAME")
@@ -15,7 +15,7 @@ user_params = {
     "token": PIXELA_TOKEN,
     "username": PIXELA_UNAME,
     "agreeTermsOfService": "yes",
-    "notMinor": "yes"
+    "notMinor": "yes",
 }
 
 # POST - To Create or Post any date
@@ -30,12 +30,10 @@ graph_config = {
     "name": "Coding Graph",
     "unit": "Hour",
     "type": "float",
-    "color": "shibafu"
+    "color": "shibafu",
 }
 
-headers = {
-    "X-USER-TOKEN": PIXELA_TOKEN
-}
+headers = {"X-USER-TOKEN": PIXELA_TOKEN}
 
 # Create Graph
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
@@ -46,20 +44,19 @@ pixel_creation_endpoint = f"{pixela_endpoint}/{PIXELA_UNAME}/graphs/{GRAPH_ID}"
 today = datetime.now().strftime("%Y%m%d")
 # print(today)
 
-pixel_params = {
-    "date" : today,
-    "quantity": input("How many hours did you code today? ")
-}
+pixel_params = {"date": today, "quantity": input("How many hours did you code today? ")}
 
 # Fix for Pixela's 75% success rate
 success = False
 while not success:
-    response = requests.post(url=pixel_creation_endpoint, json=pixel_params, headers=headers)
+    response = requests.post(
+        url=pixel_creation_endpoint, json=pixel_params, headers=headers
+    )
     response_data = response.json()
-    if response_data['isSuccess'] is False:
-        print('Post failed.\nRetrying...')
+    if response_data["isSuccess"] is False:
+        print("Post failed.\nRetrying...")
     else:
-        print('Post successful.')
+        print("Post successful.")
         success = True
 # print(response.text)
 

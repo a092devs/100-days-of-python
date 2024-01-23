@@ -1,14 +1,15 @@
 import requests
 from question_model import Question
 
-URL = 'https://opentdb.com/api.php'
+URL = "https://opentdb.com/api.php"
+
 
 def quiz_data(amount, category, difficulty):
     parameters = {
         "amount": int(amount),
         "category": category,
         "difficulty": difficulty.lower(),
-        "type": "boolean"
+        "type": "boolean",
     }
 
     if category == 0:

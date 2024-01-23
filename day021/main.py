@@ -7,12 +7,14 @@ import time
 high_score = 0
 screen = Screen()
 
+
 def play_again():
     screen.listen()
     screen.onkey(snake_game, "y")
     screen.onkey(snake_game, "Y")
     screen.onkey(screen.bye, "n")
     screen.onkey(screen.bye, "N")
+
 
 def snake_game():
     global high_score
@@ -25,8 +27,10 @@ def snake_game():
     snake = Snake()
     food = Food()
     score = Scoreboard(high_score)
-    
-    level = screen.numinput("How fast are you?", "Enter the level 1 (Easy) - 3 (Hard): ", 3, 1, 3)
+
+    level = screen.numinput(
+        "How fast are you?", "Enter the level 1 (Easy) - 3 (Hard): ", 3, 1, 3
+    )
 
     screen.listen()
     screen.onkey(snake.up, "Up")
@@ -35,7 +39,7 @@ def snake_game():
     screen.onkey(snake.right, "Right")
 
     line = Turtle()
-    line.speed('fastest')
+    line.speed("fastest")
     line.color("white")
     line.hideturtle()
     line.penup()
@@ -62,12 +66,16 @@ def snake_game():
             snake.extend()
             score.increace_score()
 
-        if (snake.head.xcor()) > 295 or (snake.head.ycor()) > 295 or \
-            (snake.head.xcor()) < -295 or (snake.head.ycor()) < -295:
+        if (
+            (snake.head.xcor()) > 295
+            or (snake.head.ycor()) > 295
+            or (snake.head.xcor()) < -295
+            or (snake.head.ycor()) < -295
+        ):
             game_is_on = False
             high_score_temp = score.game_over()
             if high_score_temp > high_score:
-                    high_score = high_score_temp
+                high_score = high_score_temp
             play_again()
 
         for segment in snake.turtles[1:]:
@@ -79,5 +87,6 @@ def snake_game():
                 play_again()
 
     screen.exitonclick()
+
 
 snake_game()

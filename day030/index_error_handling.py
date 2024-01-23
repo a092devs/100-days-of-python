@@ -1,5 +1,6 @@
 fruits = ["Apple", "Pear", "Orange"]
 
+
 def make_pie(index):
     try:
         fruit = fruits[index]
@@ -7,5 +8,6 @@ def make_pie(index):
         print("Fruit pie")
     else:
         print(f"{fruit} pie")
+
 
 make_pie(4)

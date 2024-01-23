@@ -5,8 +5,9 @@ import pyperclip
 import json
 import os, sys
 
+
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
+    """Get absolute path to resource, works for dev and for PyInstaller"""
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
@@ -15,27 +16,84 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+
 Logo = resource_path("logo.png")
+
 
 def find_password():
     website = website_entry.get()
     try:
         with open("data.json", "r") as file:
             data = json.load(file)
-            search_email = data[website]['email']
-            search_password = data[website]['password']
-            messagebox.showinfo(title=website.title(), message=f"Email: {search_email}\nPassword: {search_password}")
+            search_email = data[website]["email"]
+            search_password = data[website]["password"]
+            messagebox.showinfo(
+                title=website.title(),
+                message=f"Email: {search_email}\nPassword: {search_password}",
+            )
     except FileNotFoundError:
         messagebox.showerror(title="Error", message="No Data File Found")
     except KeyError:
         messagebox.showerror(title="Error", message="No details for the website exists")
 
+
 def generate_password():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-               'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-               'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '*', '(', ')', '-', '_', '+']
+    letters = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    symbols = ["!", "#", "$", "%", "&", "*", "(", ")", "-", "_", "+"]
 
     password_letters = [choice(letters) for _ in range(randint(8, 10))]
     password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
@@ -48,9 +106,11 @@ def generate_password():
     password_entry.insert(0, password)
     pyperclip.copy(password)
 
+
 def clear_info():
     website_entry.delete(0, END)
     password_entry.delete(0, END)
+
 
 def save():
     website = website_entry.get()
@@ -64,7 +124,9 @@ def save():
     }
 
     if len(website) == 0 or len(password) == 0:
-        messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
+        messagebox.showinfo(
+            title="Oops", message="Please make sure you haven't left any fields empty."
+        )
     else:
         try:
             with open("data.json", "r") as file:
@@ -91,6 +153,7 @@ def save():
         finally:
             website_entry.delete(0, END)
             password_entry.delete(0, END)
+
 
 window = Tk()
 window.title("Password Manager")

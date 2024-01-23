@@ -3,10 +3,11 @@ from os import environ
 from dotenv import load_dotenv
 from flight_data import FlightData
 
-load_dotenv('config.env', override=True)
+load_dotenv("config.env", override=True)
 
 TEQUILA_ENDPOINT = environ.get("TEQUILA_ENDPOINT")
 TEQUILA_API_KEY = environ.get("TEQUILA_API_KEY")
+
 
 class FlightSearch:
     def get_destination_code(self, city_name):
@@ -17,7 +18,9 @@ class FlightSearch:
         results = response.json()["locations"]
         return results[0]["code"]
 
-    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
+    def check_flights(
+        self, origin_city_code, destination_city_code, from_time, to_time
+    ):
         headers = {"apikey": TEQUILA_API_KEY}
         query = {
             "fly_from": origin_city_code,
@@ -29,7 +32,7 @@ class FlightSearch:
             "flight_type": "round",
             "one_for_city": 1,
             "max_stopovers": 0,
-            "curr": "GBP"
+            "curr": "GBP",
         }
 
         response = requests.get(

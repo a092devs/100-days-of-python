@@ -7,25 +7,31 @@ all_posts = blog_resp.json()
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def home():
     return render_template("index.html", posts=all_posts)
 
-@app.route('/index.html')
+
+@app.route("/index.html")
 def index():
     return render_template("index.html", posts=all_posts)
 
-@app.route('/about.html')
+
+@app.route("/about.html")
 def about():
-    return render_template('about.html')
+    return render_template("about.html")
 
-@app.route('/contact.html')
+
+@app.route("/contact.html")
 def contact():
-    return render_template('contact.html')
+    return render_template("contact.html")
 
-@app.route('/post/<int:p_id>')
+
+@app.route("/post/<int:p_id>")
 def get_post(p_id):
-    return render_template('post.html', post=all_posts[int(p_id) - 1])
+    return render_template("post.html", post=all_posts[int(p_id) - 1])
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,6 +1,13 @@
 import time
 from turtle import Screen
-from screen_configs import SCREEN_WIDTH, SCREEN_HEIGHT, TOP_BORDER, BOTTOM_BORDER, RIGHT_BORDER, LEFT_BORDER
+from screen_configs import (
+    SCREEN_WIDTH,
+    SCREEN_HEIGHT,
+    TOP_BORDER,
+    BOTTOM_BORDER,
+    RIGHT_BORDER,
+    LEFT_BORDER,
+)
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard

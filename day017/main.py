@@ -14,4 +14,6 @@ quiz = QuizBrain(question_bank)
 while quiz.questions_left():
     quiz.next_question()
 
-print(f"Thanks for completing the trivia. Your final score is: {quiz.score}/{quiz.question_number}.")
+print(
+    f"Thanks for completing the trivia. Your final score is: {quiz.score}/{quiz.question_number}."
+)

@@ -19,6 +19,7 @@ timer = None
 count_min = 0
 count_sec = 0
 
+
 # ---------------------------- TIMER RESET ------------------------------- #
 def reset_timer():
     global reps
@@ -32,8 +33,9 @@ def reset_timer():
     checkmark_label.config(text=checkmark)
     pause_button.config(text="Pause", command=pause)
 
-    start_button['state'] = NORMAL
-    pause_button['state'] = DISABLED
+    start_button["state"] = NORMAL
+    pause_button["state"] = DISABLED
+
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
@@ -54,9 +56,10 @@ def start_timer():
         status_label.config(text="Work...", fg=GREEN)
         count_down(work_sec)
 
-    start_button['state'] = DISABLED
-    reset_button['state'] = NORMAL
-    pause_button['state'] = NORMAL
+    start_button["state"] = DISABLED
+    reset_button["state"] = NORMAL
+    pause_button["state"] = NORMAL
+
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def count_down(count):
@@ -83,8 +86,9 @@ def count_down(count):
             window.after_cancel(timer)
             status_label.config(text="Done:) ", fg=PURPLE)
             canvas.itemconfig(timer_text, text="00:00")
-            start_button['state'] = DISABLED
-            pause_button['state'] = DISABLED
+            start_button["state"] = DISABLED
+            pause_button["state"] = DISABLED
+
 
 # ---------------------------- PAUSE / RESUME ------------------------------- #
 def pause():
@@ -97,11 +101,13 @@ def pause():
     pause_button.config(text="Resume", command=resume)
     status_label.config(text="Paused ", fg=BLUE)
 
+
 def resume():
     pause_button.config(text="Pause", command=pause)
     saved_data = count_min * 60 + int(count_sec)
     count_down(saved_data)
     status_label.config(text=current_status_label, fg=current_status_label_color)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -111,25 +117,35 @@ window.config(padx=100, pady=50, bg=YELLOW)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
-timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 30, "bold"))
+timer_text = canvas.create_text(
+    100, 130, text="00:00", fill="white", font=(FONT_NAME, 30, "bold")
+)
 canvas.grid(column=1, row=1)
 
-status_label = Label(text=" Timer ", fg="black", bg=YELLOW, font=(FONT_NAME, 35, "bold"))
+status_label = Label(
+    text=" Timer ", fg="black", bg=YELLOW, font=(FONT_NAME, 35, "bold")
+)
 status_label.grid(column=1, row=0)
 
 checkmark_label = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 10, "bold"))
 checkmark_label.grid(column=1, row=3)
 
-start_button = Button(text="Start", bg="white", font=(FONT_NAME, 10, "bold"), command=start_timer)
+start_button = Button(
+    text="Start", bg="white", font=(FONT_NAME, 10, "bold"), command=start_timer
+)
 start_button.grid(column=0, row=2)
-start_button['state'] = NORMAL
+start_button["state"] = NORMAL
 
-reset_button = Button(text="Reset", bg="white", font=(FONT_NAME, 10, "bold"), command=reset_timer)
+reset_button = Button(
+    text="Reset", bg="white", font=(FONT_NAME, 10, "bold"), command=reset_timer
+)
 reset_button.grid(column=2, row=2)
-reset_button['state'] = DISABLED
+reset_button["state"] = DISABLED
 
-pause_button = Button(text="Pause", bg="white", font=(FONT_NAME, 10, "bold"), command=pause)
+pause_button = Button(
+    text="Pause", bg="white", font=(FONT_NAME, 10, "bold"), command=pause
+)
 pause_button.grid(column=1, row=4)
-pause_button['state'] = DISABLED
+pause_button["state"] = DISABLED
 
 window.mainloop()

@@ -3,7 +3,7 @@ from os import environ
 from dotenv import load_dotenv
 from twilio.rest import Client
 
-load_dotenv('config.env', override=True)
+load_dotenv("config.env", override=True)
 
 lat = environ.get("LAT")
 long = environ.get("LONG")
@@ -37,9 +37,8 @@ for i in weather_slice:
 
 if will_rain:
     client = Client(account_sid, auth_token)
-    message = client.messages \
-                .create(
-                     body="It's going to rain today. Remember to bring an ☔",
-                     from_=from_num,
-                     to=to_num
-                 )
+    message = client.messages.create(
+        body="It's going to rain today. Remember to bring an ☔",
+        from_=from_num,
+        to=to_num,
+    )

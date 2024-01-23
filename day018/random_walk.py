@@ -9,6 +9,7 @@ choice = [0, 90, 180, 270]
 tom.pensize(10)
 tom.speed("fastest")
 
+
 def moveRandom(turtle):
     turtle.forward(-20)
     turtle.setheading(random.choice(choice))

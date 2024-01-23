@@ -3,6 +3,7 @@ from os import path
 FILE_NAME = "high_score.txt"
 HEART_SYMBOL = "💛"
 
+
 class Game:
     def __init__(self):
         if path.exists(FILE_NAME):

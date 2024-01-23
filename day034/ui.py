@@ -5,8 +5,10 @@ from tkinter import messagebox
 
 THEME_COLOR = "#375362"
 
+
 def do_nothing():
     pass
+
 
 class QuizInterface:
     def __init__(self, quiz_brain: QuizBrain):
@@ -30,26 +32,46 @@ class QuizInterface:
         menubar.add_cascade(label="Help", menu=help_menu)
         self.window.config(menu=menubar)
 
-        self.question_count_label = tk.Label(text=f"Question 1/{self.quiz.num_questions}",
-                                             bg=THEME_COLOR, fg="white", justify="center")
+        self.question_count_label = tk.Label(
+            text=f"Question 1/{self.quiz.num_questions}",
+            bg=THEME_COLOR,
+            fg="white",
+            justify="center",
+        )
         self.question_count_label.grid(row=0, column=0, padx=20, pady=(0, 20))
 
-        self.score_label = tk.Label(text="Score: 0", bg=THEME_COLOR, fg="white", justify="center")
+        self.score_label = tk.Label(
+            text="Score: 0", bg=THEME_COLOR, fg="white", justify="center"
+        )
         self.score_label.grid(row=0, column=1, padx=20, pady=(0, 20))
 
         self.canvas = tk.Canvas(width=300, height=250)
         self.canvas.grid(row=1, column=0, columnspan=2)
-        self.question_text = self.canvas.create_text(150, 125, text="Quiz question is coming",
-                                                     fill=THEME_COLOR,
-                                                     font=("Arial", 18, "italic"),
-                                                     width=280)
+        self.question_text = self.canvas.create_text(
+            150,
+            125,
+            text="Quiz question is coming",
+            fill=THEME_COLOR,
+            font=("Arial", 18, "italic"),
+            width=280,
+        )
 
         true_img = tk.PhotoImage(file="./images/true.png")
-        self.true_button = tk.Button(image=true_img, borderwidth=0, highlightthickness=0, command=self.answer_true)
+        self.true_button = tk.Button(
+            image=true_img,
+            borderwidth=0,
+            highlightthickness=0,
+            command=self.answer_true,
+        )
         self.true_button.grid(row=2, column=0, padx=20, pady=(20, 0))
 
         false_img = tk.PhotoImage(file="./images/false.png")
-        self.false_button = tk.Button(image=false_img, borderwidth=0, highlightthickness=0, command=self.answer_false)
+        self.false_button = tk.Button(
+            image=false_img,
+            borderwidth=0,
+            highlightthickness=0,
+            command=self.answer_false,
+        )
         self.false_button.grid(row=2, column=1, padx=20, pady=(20, 0))
 
         self.next_question()
@@ -71,7 +93,9 @@ class QuizInterface:
             self.false_button.config(state="disabled")
         self.canvas.itemconfig(self.question_text, text=question)
         self.score_label.config(text=f"Score : {self.quiz.score}")
-        self.question_count_label.config(text=f"Question {self.quiz.question_number}/{self.quiz.num_questions}")
+        self.question_count_label.config(
+            text=f"Question {self.quiz.question_number}/{self.quiz.num_questions}"
+        )
 
     def answer_true(self):
         self.check_answer("True")
@@ -96,7 +120,7 @@ class QuizInterface:
         params = {
             "category": self.quiz.category,
             "difficulty": self.quiz.difficulty,
-            "num_questions": self.quiz.num_questions
+            "num_questions": self.quiz.num_questions,
         }
         SetupUI(self, params)
 
@@ -104,7 +128,7 @@ class QuizInterface:
         params = {
             "category": category,
             "difficulty": difficulty,
-            "amount": num_questions
+            "amount": num_questions,
         }
         self.quiz.setup(params)
         self.next_question()

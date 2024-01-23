@@ -12,7 +12,8 @@ except (FileNotFoundError, ValueError):
     original_data = pandas.read_csv("./data/french_words.csv")
     data_dict = original_data.to_dict(orient="records")
 else:
-    data_dict = (data.to_dict(orient="records"))
+    data_dict = data.to_dict(orient="records")
+
 
 def next_card():
     global current_card, flip_timer
@@ -23,16 +24,19 @@ def next_card():
     canvas.itemconfig(canvas_image, image=card_front_png)
     flip_timer = window.after(3000, flip_card)
 
+
 def flip_card():
     canvas.itemconfig(canvas_text, text="English", fill="white")
-    canvas.itemconfig(canvas_word, text=current_card["English"], fill='white')
+    canvas.itemconfig(canvas_word, text=current_card["English"], fill="white")
     canvas.itemconfig(canvas_image, image=card_back_png)
+
 
 def is_known():
     data_dict.remove(current_card)
     learn_data = pandas.DataFrame(data_dict)
     learn_data.to_csv("data/words_to_learn.csv", index=False)
     next_card()
+
 
 window = Tk()
 window.title("Flash Card Game")

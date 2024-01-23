@@ -3,7 +3,7 @@ import random
 
 screen = Screen()
 screen.setup(width=800, height=600)
-screen.bgpic('road.gif')
+screen.bgpic("road.gif")
 
 ALIGN = "right"
 FONT = ("Courier", 28, "bold")
@@ -11,12 +11,12 @@ FONT = ("Courier", 28, "bold")
 y_positions = [-260, -172, -85, 2, 85, 172, 260]
 colors = ["white", "red", "orange", "pink", "tomato", "dodgerblue", "yellow"]
 all_turtle = []
-user_bet = screen.textinput('Enter your bet', prompt='Which turtle (color): ')
+user_bet = screen.textinput("Enter your bet", prompt="Which turtle (color): ")
 
 for index in range(7):
     new_turtle = Turtle(shape="turtle")
     new_turtle.shapesize(2)
-    new_turtle.speed('fastest')
+    new_turtle.speed("fastest")
     new_turtle.penup()
     new_turtle.goto(x=-350, y=y_positions[index])
     new_turtle.color(colors[index])
@@ -30,9 +30,9 @@ while is_on:
             is_on = False
             winner = turtle.pencolor()
             if winner == user_bet:
-                turtle.write(f'Winner! The {winner} is winner', font=FONT, align=ALIGN)
+                turtle.write(f"Winner! The {winner} is winner", font=FONT, align=ALIGN)
             else:
-                turtle.write(f'Lost! The {winner} is winner', font=FONT, align=ALIGN)
+                turtle.write(f"Lost! The {winner} is winner", font=FONT, align=ALIGN)
         random_pace = random.randint(0, 7)
         turtle.forward(random_pace)
 

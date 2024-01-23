@@ -3,6 +3,7 @@ from turtle import Turtle
 RIGHT_PADDLE_POSITION = (450, 0)
 LEFT_PADDLE_POSITION = (-450, 0)
 
+
 class Paddle(Turtle):
     def __init__(self, position: str):
         super().__init__()

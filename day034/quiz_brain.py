@@ -5,6 +5,7 @@ AMOUNT = 10
 CATEGORY = 0
 DIFFICULTY = "easy"
 
+
 class QuizBrain:
     def __init__(self):
         self.question_list = None
@@ -16,7 +17,7 @@ class QuizBrain:
         params = {
             "category": self.category,
             "difficulty": self.difficulty,
-            "amount": self.num_questions
+            "amount": self.num_questions,
         }
         self.setup(params)
 
@@ -24,7 +25,9 @@ class QuizBrain:
         self.category = params["category"]
         self.difficulty = params["difficulty"]
         self.num_questions = params["amount"]
-        self.question_list = quiz_data(self.num_questions, self.category, self.difficulty)
+        self.question_list = quiz_data(
+            self.num_questions, self.category, self.difficulty
+        )
         self.score = 0
         self.question_number = 0
 
@@ -35,12 +38,11 @@ class QuizBrain:
         question = self.question_list[self.question_number]
         question_text = html.unescape(question.text)
         self.question_number += 1
-        return f'Q.{self.question_number}: {question_text} (True/False)?'
+        return f"Q.{self.question_number}: {question_text} (True/False)?"
 
     def check_answer(self, u_answer):
-        correct_answer = self.question_list[self.question_number-1].answer
+        correct_answer = self.question_list[self.question_number - 1].answer
         if correct_answer.lower() != u_answer.lower():
             return False
         self.score += 1
         return True
-

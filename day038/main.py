@@ -3,7 +3,7 @@ from os import environ
 from datetime import datetime
 from dotenv import load_dotenv
 
-load_dotenv('config.env', override=True)
+load_dotenv("config.env", override=True)
 
 NUTRITIONIX_APP_ID = environ.get("NUTRITIONIX_APP_ID")
 NUTRITIONIX_APP_KEY = environ.get("NUTRITIONIX_APP_KEY")
@@ -18,17 +18,14 @@ nutrionix_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
 exercise_query = input("Tell me which exercises you did? ")
 
-headers = {
-    "x-app-id": NUTRITIONIX_APP_ID,
-    "x-app-key": NUTRITIONIX_APP_KEY
-}
+headers = {"x-app-id": NUTRITIONIX_APP_ID, "x-app-key": NUTRITIONIX_APP_KEY}
 
 nutrionix_params = {
     "query": exercise_query,
     "gender": GENDER,
     "weight_kg": WEIGHT_KG,
     "height_cm": HEIGHT_CM,
-    "age": AGE
+    "age": AGE,
 }
 
 response = requests.post(url=nutrionix_endpoint, json=nutrionix_params, headers=headers)
@@ -44,8 +41,8 @@ for exercise in result["exercises"]:
             "date": current_date,
             "time": current_time,
             "exercise": exercise["name"].title(),
-                "duration": exercise["duration_min"],
-                "calories": exercise["nf_calories"]
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"],
         }
     }
 
